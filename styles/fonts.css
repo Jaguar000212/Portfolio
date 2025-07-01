@@ -1,0 +1,27 @@
+/* Custom font imports */
+@font-face {
+    font-family: "Agustina Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Agustina Regular"), url("/fonts/Agustina.woff") format("woff");
+    font-display: swap;
+}
+
+/* Font utility classes aligned with tailwind config */
+.font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-signature {
+    font-family: 'Agustina Regular', cursive;
+}
+
+/* For backward compatibility */
+.signature-text {
+    font-family: 'Agustina Regular', cursive;
+    font-weight: bold;
+}

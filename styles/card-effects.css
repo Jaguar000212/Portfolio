@@ -1,0 +1,45 @@
+/* Card gradient border effects */
+.card {
+    --x: 50%;
+    --y: 50%;
+    position: relative;
+    overflow: hidden;
+    /* Add instant response to mouse hover */
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
+}
+
+.gradient-border::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.75rem;
+    /* rounded-xl */
+    padding: 2px;
+    /* border width */
+    background: radial-gradient(600px circle at var(--x) var(--y),
+            var(--color-primary, #0070f3),
+            var(--color-secondary, #ff0080),
+            transparent 40%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 20;
+    /* Make the border appear instantly */
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Add instant response to hover */
+.card * {
+    transition-delay: 0s !important;
+}
