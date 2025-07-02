@@ -25,7 +25,7 @@ const GitHubProjectCard = ({ project }) => {
             onHoverEnd={mouseHandlers.onMouseLeave}
             onMouseMove={mouseHandlers.onMouseMove}
         >
-            <div className="p-5 z-0">
+            <div className="p-5 z-0 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-3">
                     <div className="flex items-center">
                         <svg
@@ -49,7 +49,18 @@ const GitHubProjectCard = ({ project }) => {
                     {project.description}
                 </p>
 
-                <div className="flex flex-wrap justify-between items-center">
+                <div className="mb-4 flex flex-wrap gap-2 mt-auto">
+                    {project.topics.map((topics, index) => (
+                        <span
+                            key={index}
+                            className="font-body inline-block bg-gray-100 dark:bg-gray-800 rounded-full px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300"
+                        >
+                            {topics}
+                        </span>
+                    ))}
+                </div>
+
+                <div className="flex flex-wrap justify-between items-center mt-auto">
                     <div className="flex items-center space-x-4">
                         {project.primaryLanguage &&
                             project.primaryLanguage.name && (

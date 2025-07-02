@@ -1,4 +1,4 @@
-// Script to fetch pinned GitHub repositories
+// Script to fetch pinned GitHub repositories and flatten topics array
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
@@ -16,28 +16,35 @@ console.log(`Fetching pinned repositories for GitHub user: ${GITHUB_USERNAME}`);
 async function fetchPinnedRepos() {
     return new Promise((resolve, reject) => {
         const query = `
-              query {
+            query {
                 user(login: "${GITHUB_USERNAME}") {
-                  pinnedItems(first: 6, types: [REPOSITORY]) {
-                    nodes {
-                      ... on Repository {
-                        id
-                        name
-                        description
-                        url
-                        stargazerCount
-                        forkCount
-                        primaryLanguage {
-                          name
-                          color
+                    pinnedItems(first: 6, types: [REPOSITORY]) {
+                        nodes {
+                            ... on Repository {
+                                id
+                                name
+                                description
+                                url
+                                stargazerCount
+                                forkCount
+                                primaryLanguage {
+                                    name
+                                    color
+                                }
+                                repositoryTopics(first: 10) {
+                                    nodes {
+                                        topic {
+                                            name
+                                        }
+                                    }
+                                }
+                                updatedAt
+                            }
                         }
-                        updatedAt
-                      }
                     }
-                  }
                 }
-              }
-            `;
+            }
+        `;
 
         const data = JSON.stringify({query});
 
@@ -82,7 +89,24 @@ async function fetchPinnedRepos() {
                     const pinnedRepos = parsedData.data.user.pinnedItems.nodes;
                     console.log(`Found ${pinnedRepos.length} pinned repositories`);
 
-                    resolve(pinnedRepos);
+                    // Flatten topics array for each repo and remove repositoryTopics field
+                    const mappedRepos = pinnedRepos.map(repo => {
+                        const topics = (repo.repositoryTopics?.nodes || [])
+                            .map(n => n.topic?.name)
+                            .filter(Boolean);
+
+                        // Shallow copy, then remove repositoryTopics and add topics
+                        const {
+                            repositoryTopics, // eslint-disable-line no-unused-vars
+                            ...rest
+                        } = repo;
+
+                        return {
+                            ...rest, topics,
+                        };
+                    });
+
+                    resolve(mappedRepos);
                 } catch (error) {
                     reject(new Error(`Error processing GraphQL response: ${error.message}`));
                 }
@@ -116,7 +140,7 @@ async function main() {
 
 function saveRepositories(repositories) {
     const outputData = {
-        repositories, lastFetched: new Date().toISOString()
+        repositories, lastFetched: new Date().toISOString(),
     };
 
     const outputPath = path.join(__dirname, '../public/data/staticGithubData.json');

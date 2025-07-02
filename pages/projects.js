@@ -121,7 +121,7 @@ export default function Projects() {
                         >
                             Featured Projects
                         </motion.h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 font-body">
+                        <div className="grid grid-cols-1 items-stretch md:grid-cols-2 lg:grid-cols-2 gap-8 font-body">
                             {bigProjects.map((project, index) => (
                                 <motion.div
                                     key={project.id}

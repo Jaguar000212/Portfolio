@@ -242,7 +242,7 @@ export default function Home() {
                                 <p className="text-gray-600 dark:text-gray-400">
                                     Developing robust backend services and
                                     RESTful APIs to power applications using
-                                    Spring Boot, Firebase, and modern database
+                                    Spark, Firebase, and modern database
                                     solutions.
                                 </p>
                                 <div className="mt-4 flex flex-wrap gap-2">
@@ -250,7 +250,7 @@ export default function Home() {
                                         Java
                                     </span>
                                     <span className="text-xs font-medium px-2 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-                                        Spring
+                                        Spark
                                     </span>
                                     <span className="text-xs font-medium px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">
                                         Firebase
