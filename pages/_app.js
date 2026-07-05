@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import "../styles/animations.css";
 import "../styles/fonts.css";
 import "../styles/card-effects.css";
+import "../styles/skills-orbit.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
@@ -18,7 +19,7 @@ function MyApp({ Component, pageProps }) {
                     crossOrigin="anonymous"
                 />
                 <link
-                    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Dancing+Script:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
                     rel="stylesheet"
                 />
                 <link

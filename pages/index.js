@@ -38,7 +38,7 @@ export default function Home() {
                 <meta name="title" content="Shryansh | Software Developer" />
                 <meta
                     name="description"
-                    content="Portfolio website for Shryansh, a mobile app developer specializing in Android, Kotlin, and Java"
+                    content="Portfolio website for Shryansh, a Software Engineer specializing in native Android development with Kotlin and backend systems with Python"
                 />
                 <meta property="og:type" content="website" />
                 <meta
@@ -51,7 +51,7 @@ export default function Home() {
                 />
                 <meta
                     property="og:description"
-                    content="Portfolio website for Shryansh, a mobile app developer specializing in Android, Kotlin, and Java"
+                    content="Portfolio website for Shryansh, a Software Engineer specializing in native Android development with Kotlin and backend systems with Python"
                 />
                 <meta property="og:image" content="/images/Jaguar000212.png" />
                 <meta property="twitter:card" content="summary_large_image" />
@@ -65,7 +65,7 @@ export default function Home() {
                 />
                 <meta
                     property="twitter:description"
-                    content="Portfolio website for Shryansh, a mobile app developer specializing in Android, Kotlin, and Java"
+                    content="Portfolio website for Shryansh, a Software Engineer specializing in native Android development with Kotlin and backend systems with Python"
                 />
                 <meta property="og:image" content="/images/Jaguar000212.png" />
                 <link rel="icon" href="/favicon.ico" />
@@ -86,14 +86,14 @@ export default function Home() {
                                 </span>
                                 <span className="ml-2 wave-emoji">👋</span>
                             </h1>
-                            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4">
-                                A passionate Software Developer. 🧑🏻‍💻
+                            <p className="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3 font-heading">
+                                Software Engineer
                             </p>
                             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6">
-                                Skilled in development strategies, actively
-                                seeking thrilling opportunities. Currently
-                                focused on Android application development using
-                                Java and Kotlin.
+                                Architecting high-performance native Android
+                                applications with Kotlin and building
+                                scalable, data-driven backend systems with
+                                Python.
                             </p>
 
                             <motion.div
@@ -183,23 +183,27 @@ export default function Home() {
                                     </svg>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 font-heading">
-                                    Android App Development
+                                    Native Android Engineering
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-400">
-                                    Building modern, responsive mobile
-                                    applications with Java, Kotlin, and Jetpack
-                                    Compose with focus on clean architecture and
-                                    user experience.
+                                    Architecting 100% Kotlin mobile
+                                    applications using Jetpack Compose,
+                                    MVVM/MVI, and Hilt. Focused on
+                                    offline-first capabilities and responsive
+                                    UIs.
                                 </p>
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     <span className="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
                                         Kotlin
                                     </span>
-                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
                                         Jetpack Compose
                                     </span>
-                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                                        Android
+                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                        RoomDB
+                                    </span>
+                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">
+                                        Hilt
                                     </span>
                                 </div>
                             </motion.div>
@@ -237,23 +241,26 @@ export default function Home() {
                                     </svg>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 font-heading">
-                                    Java Backend & APIs
+                                    Backend & Data Systems
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-400">
-                                    Developing robust backend services and
-                                    RESTful APIs to power applications using
-                                    Spark, Firebase, and modern database
-                                    solutions.
+                                    Designing high-availability REST APIs and
+                                    asynchronous processing pipelines using
+                                    Python, FastAPI, and robust database
+                                    architectures.
                                 </p>
                                 <div className="mt-4 flex flex-wrap gap-2">
-                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
-                                        Java
+                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                        Python
                                     </span>
-                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-                                        Spark
+                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
+                                        FastAPI
                                     </span>
-                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">
-                                        Firebase
+                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                        PostgreSQL
+                                    </span>
+                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">
+                                        Redis
                                     </span>
                                 </div>
                             </motion.div>
@@ -291,23 +298,26 @@ export default function Home() {
                                     </svg>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 font-heading">
-                                    Python Scripting
+                                    Automation & Applied AI
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-400">
-                                    Creating automation solutions and data
-                                    processing tools using Python and its
-                                    extensive library ecosystem for efficient
-                                    workflows.
+                                    Developing custom web scrapers,
+                                    automation tools, and GPU-accelerated
+                                    machine learning pipelines for massive
+                                    datasets.
                                 </p>
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     <span className="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                                        Python
+                                        CUDA
                                     </span>
-                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200">
-                                        Data Science
+                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
+                                        Playwright
                                     </span>
                                     <span className="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                                        Automation
+                                        XGBoost
+                                    </span>
+                                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">
+                                        Docker
                                     </span>
                                 </div>
                             </motion.div>

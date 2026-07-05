@@ -1,23 +1,20 @@
 {
   "repositories": [
     {
-      "id": "R_kgDOKiT1tA",
-      "name": "Wizardi",
-      "description": "A multi utility Discord bot in Python",
-      "url": "https://github.com/Jaguar000212/Wizardi",
-      "stargazerCount": 2,
-      "forkCount": 0,
+      "id": "R_kgDOSHAxkw",
+      "name": "Kompiler",
+      "description": "a small custom compiler made in Kotlin for Android",
+      "url": "https://github.com/Jaguar000212/Kompiler",
+      "stargazerCount": 0,
+      "forkCount": 1,
       "primaryLanguage": {
-        "name": "Python",
-        "color": "#3572A5"
+        "name": "Kotlin",
+        "color": "#A97BFF"
       },
-      "updatedAt": "2025-05-25T15:35:58Z",
+      "updatedAt": "2026-07-05T16:45:14Z",
       "topics": [
-        "discord",
-        "discord-bot",
-        "discord-py",
-        "disnake",
-        "disnake-slash-command"
+        "compiler",
+        "pascal-like"
       ]
     },
     {
@@ -42,40 +39,59 @@
       ]
     },
     {
-      "id": "R_kgDOKibb2Q",
-      "name": "Address-Book",
-      "description": "Your personal contacts manager",
-      "url": "https://github.com/Jaguar000212/Address-Book",
+      "id": "R_kgDOLNmzww",
+      "name": "LOTM-API",
+      "description": "Library that scraps data from one of the fandoms of Lord of the Mysteries, the renounced Novel.",
+      "url": "https://github.com/Jaguar000212/LOTM-API",
       "stargazerCount": 2,
+      "forkCount": 1,
+      "primaryLanguage": {
+        "name": "Python",
+        "color": "#3572A5"
+      },
+      "updatedAt": "2025-05-21T04:11:56Z",
+      "topics": [
+        "api",
+        "beautifulsoup",
+        "web-scraping",
+        "lord-of-the-mystries"
+      ]
+    },
+    {
+      "id": "R_kgDOSP8bWA",
+      "name": "Async-Worker",
+      "description": "This project demonstrates an end-to-end asynchronous document processing system",
+      "url": "https://github.com/Jaguar000212/Async-Worker",
+      "stargazerCount": 0,
+      "forkCount": 0,
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      },
+      "updatedAt": "2026-07-05T16:57:27Z",
+      "topics": [
+        "async-workers",
+        "celery",
+        "postgresql",
+        "redis"
+      ]
+    },
+    {
+      "id": "R_kgDOSJwHQw",
+      "name": "Trading-Bot",
+      "description": "A trading bot CLI based on Binance Futures Testnet",
+      "url": "https://github.com/Jaguar000212/Trading-Bot",
+      "stargazerCount": 0,
       "forkCount": 0,
       "primaryLanguage": {
         "name": "Python",
         "color": "#3572A5"
       },
-      "updatedAt": "2024-06-29T11:57:35Z",
+      "updatedAt": "2026-07-05T16:56:03Z",
       "topics": [
-        "address-book",
-        "contacts",
-        "project"
-      ]
-    },
-    {
-      "id": "R_kgDONdfC9g",
-      "name": "Self-Notes",
-      "description": "A personal noting app for android made in Java",
-      "url": "https://github.com/Jaguar000212/Self-Notes",
-      "stargazerCount": 7,
-      "forkCount": 1,
-      "primaryLanguage": {
-        "name": "Java",
-        "color": "#b07219"
-      },
-      "updatedAt": "2025-01-12T18:34:54Z",
-      "topics": [
-        "android",
-        "android-app",
-        "android-studio",
-        "java"
+        "binance",
+        "cli-tool",
+        "trading"
       ]
     },
     {
@@ -97,25 +113,7 @@
         "java",
         "utility"
       ]
-    },
-    {
-      "id": "R_kgDOMUmD-A",
-      "name": "Little-Lemon",
-      "description": "An app for a hypothetical restaurant, built during a course by META",
-      "url": "https://github.com/Jaguar000212/Little-Lemon",
-      "stargazerCount": 1,
-      "forkCount": 0,
-      "primaryLanguage": {
-        "name": "Kotlin",
-        "color": "#A97BFF"
-      },
-      "updatedAt": "2025-06-28T09:58:18Z",
-      "topics": [
-        "android",
-        "jetpack-compose",
-        "kotlin"
-      ]
     }
   ],
-  "lastFetched": "2025-07-02T17:16:13.107Z"
+  "lastFetched": "2026-07-05T20:50:02.544Z"
 }

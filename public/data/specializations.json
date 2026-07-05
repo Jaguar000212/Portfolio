@@ -1,0 +1,20 @@
+{
+  "specializations": [
+    {
+      "id": 1,
+      "name": "Meta Android UI Development Specialization",
+      "issuer": "Meta",
+      "date": "July 3, 2025",
+      "image": "/images/certificate-logos/meta.png",
+      "link": "https://www.coursera.org/account/accomplishments/specialization/certificate/JFERY0KQXQKR",
+      "technologies": [
+        "Android",
+        "Kotlin",
+        "Jetpack Compose",
+        "UX/UI",
+        "Figma"
+      ],
+      "courseIds": [11, 13, 14, 17]
+    }
+  ]
+}

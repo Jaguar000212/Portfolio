@@ -1,112 +1,214 @@
 {
-  "skills": {
-    "languages": [
-      {
-        "name": "Kotlin",
-        "level": 80,
-        "icon": "https://img.icons8.com/color/48/000000/kotlin.png"
-      },
-      {
-        "name": "Java",
-        "level": 70,
-        "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png"
-      },
-      {
-        "name": "Python",
-        "level": 90,
-        "icon": "https://img.icons8.com/color/48/000000/python.png"
-      },
-      {
-        "name": "C",
-        "level": 45,
-        "icon": "https://img.icons8.com/color/48/000000/c-programming.png"
-      },
-      {
-        "name": "C++",
-        "level": 50,
-        "icon": "https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"
-      },
-      {
-        "name": "JavaScript",
-        "level": 70,
-        "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
-      }
-    ],
-    "tools": [
-      {
-        "name": "Android Studio",
-        "level": 90,
-        "icon": "https://img.icons8.com/color/48/000000/android-studio--v3.png"
-      },
-      {
-        "name": "JetBrains IDEs",
-        "level": 85,
-        "icon": "https://img.icons8.com/color/48/000000/jetbrains.png"
-      },
-      {
-        "name": "VS Code",
-        "level": 95,
-        "icon": "https://img.icons8.com/color/48/000000/visual-studio-code-2019.png"
-      },
-      {
-        "name": "Git",
-        "level": 100,
-        "icon": "https://img.icons8.com/color/48/000000/git.png"
-      },
-      {
-        "name": "Docker",
-        "level": 70,
-        "icon": "https://img.icons8.com/color/48/000000/docker.png"
-      },
-      {
-        "name": "Linux",
-        "level": 50,
-        "icon": "https://img.icons8.com/color/48/000000/linux.png"
-      }
-    ],
-    "frontend": [
-      {
-        "name": "HTML",
-        "level": 100,
-        "icon": "https://img.icons8.com/color/48/000000/html-5.png"
-      },
-      {
-        "name": "CSS",
-        "level": 100,
-        "icon": "https://img.icons8.com/color/48/000000/css3.png"
-      },
-      {
-        "name": "React",
-        "level": 65,
-        "icon": "https://img.icons8.com/color/48/000000/react-native.png"
-      },
-      {
-        "name": "Jetpack Compose",
-        "level": 90,
-        "icon": "https://logo.svgcdn.com/d/jetpackcompose-original.png"
-      }
-    ],
-    "backend": [
-      {
-        "name": "MySQL",
-        "level": 80,
-        "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png"
-      },
-      {
-        "name": "PostgreSQL",
-        "level": 70,
-        "icon": "https://img.icons8.com/color/48/000000/postgreesql.png"
-      },
-      {
-        "name": "MongoDB",
-        "level": 60,
-        "icon": "https://img.icons8.com/color/48/000000/mongodb.png"
-      },
-      {
-        "name": "Firebase",
-        "level": 90,
-        "icon": "https://img.icons8.com/color/48/000000/firebase.png"
-      }
-    ]
-  }
+  "core": { "initial": "J", "name": "JAGUAR", "role": "Full-Stack Eng" },
+  "intro": {
+    "eyebrow": "My toolkit",
+    "title": "A full-stack toolkit, mapped as a system.",
+    "subtitle": "From native mobile to compilers — each planet is a domain, its tools one tap away."
+  },
+  "domains": [
+    {
+      "key": "mobile",
+      "short": "Mobile",
+      "glyph": "◇",
+      "tag": "Native & Cross-Platform",
+      "name": "Mobile Development",
+      "groups": [
+        {
+          "label": "Native Android",
+          "skills": [
+            { "name": "Jetpack Compose", "icon": "jetpackcompose" },
+            { "name": "Material Design 3", "icon": "materialdesign" },
+            { "name": "XML" },
+            { "name": "Android SDK", "icon": "android" }
+          ]
+        },
+        {
+          "label": "Cross-Platform",
+          "skills": [{ "name": "React Native", "icon": "react" }]
+        },
+        {
+          "label": "Architecture & State",
+          "skills": [
+            { "name": "MVVM" },
+            { "name": "MVI" },
+            { "name": "Kotlin Flows" }
+          ]
+        },
+        {
+          "label": "Data & DI",
+          "skills": [
+            { "name": "RoomDB" },
+            { "name": "Hilt" },
+            { "name": "Koin" },
+            { "name": "Retrofit" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "web",
+      "short": "Web",
+      "glyph": "</>",
+      "tag": "Frontend",
+      "name": "Web & Frontend",
+      "groups": [
+        {
+          "label": "Frameworks",
+          "skills": [
+            { "name": "Next.js", "icon": "nextdotjs" },
+            { "name": "React.js", "icon": "react" }
+          ]
+        },
+        {
+          "label": "Core & Libraries",
+          "skills": [
+            { "name": "HTML", "icon": "html5" },
+            { "name": "CSS", "icon": "css3" },
+            { "name": "Bootstrap", "icon": "bootstrap" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "backend",
+      "short": "Backend",
+      "glyph": "ƒ",
+      "tag": "APIs & Services",
+      "name": "Backend & APIs",
+      "groups": [
+        {
+          "label": "Frameworks",
+          "skills": [
+            { "name": "FastAPI", "icon": "fastapi" },
+            { "name": "Django", "icon": "django" },
+            { "name": "Node.js", "icon": "nodedotjs" },
+            { "name": "Flask", "icon": "flask" }
+          ]
+        },
+        {
+          "label": "Async & Queues",
+          "skills": [
+            { "name": "Celery", "icon": "celery" },
+            { "name": "Redis", "icon": "redis" },
+            { "name": "Asyncio" }
+          ]
+        },
+        {
+          "label": "ORM & Migrations",
+          "skills": [
+            { "name": "SQLAlchemy", "icon": "sqlalchemy" },
+            { "name": "Alembic" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "data",
+      "short": "Data & Cloud",
+      "glyph": "DB",
+      "tag": "Databases & Cloud",
+      "name": "Databases & Cloud",
+      "groups": [
+        {
+          "label": "Relational",
+          "skills": [
+            { "name": "PostgreSQL", "icon": "postgresql" },
+            { "name": "MySQL", "icon": "mysql" },
+            { "name": "SQLite", "icon": "sqlite" }
+          ]
+        },
+        {
+          "label": "NoSQL / BaaS",
+          "skills": [
+            { "name": "Supabase", "icon": "supabase" },
+            { "name": "Firebase", "icon": "firebase" },
+            { "name": "MongoDB", "icon": "mongodb" }
+          ]
+        },
+        {
+          "label": "Vector Search",
+          "skills": [{ "name": "Pinecone" }]
+        }
+      ]
+    },
+    {
+      "key": "auto",
+      "short": "Automation",
+      "glyph": "↻",
+      "tag": "Scraping & Automation",
+      "name": "Automation & Scraping",
+      "groups": [
+        {
+          "label": "Tools",
+          "skills": [
+            { "name": "Playwright", "icon": "playwright" },
+            { "name": "BeautifulSoup" },
+            { "name": "HTTPX" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "sys",
+      "short": "Systems",
+      "glyph": "Σ",
+      "tag": "Systems, AI & DevOps",
+      "name": "Systems, AI & DevOps",
+      "groups": [
+        {
+          "label": "Infrastructure",
+          "skills": [
+            { "name": "Git", "icon": "git" },
+            { "name": "Linux", "icon": "linux" },
+            { "name": "Docker", "icon": "docker" },
+            { "name": "Kubernetes", "icon": "kubernetes" }
+          ]
+        },
+        {
+          "label": "High-Performance",
+          "skills": [
+            { "name": "CUDA", "icon": "nvidia" },
+            { "name": "MPI" },
+            { "name": "Custom Compiler Toolchains (AST, TAC)" }
+          ]
+        },
+        {
+          "label": "Data Science",
+          "skills": [
+            { "name": "XGBoost" },
+            { "name": "Scikit-learn", "icon": "scikitlearn" },
+            { "name": "Pandas", "icon": "pandas" },
+            { "name": "NumPy", "icon": "numpy" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "lang",
+      "short": "Languages",
+      "glyph": "{ }",
+      "tag": "Core & Scripting",
+      "name": "Languages",
+      "groups": [
+        {
+          "label": "Core",
+          "skills": [
+            { "name": "Kotlin", "icon": "kotlin" },
+            { "name": "Python", "icon": "python" }
+          ]
+        },
+        {
+          "label": "Secondary & Scripting",
+          "skills": [
+            { "name": "Java", "icon": "openjdk" },
+            { "name": "C++", "icon": "cplusplus" },
+            { "name": "JavaScript", "icon": "javascript" },
+            { "name": "TypeScript", "icon": "typescript" },
+            { "name": "C", "icon": "c" },
+            { "name": "SQL" }
+          ]
+        }
+      ]
+    }
+  ]
 }

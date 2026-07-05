@@ -1,45 +1,47 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import SkillBadge from "../components/SkillBadge";
-import { useMouseMove } from "../hooks/useMouseMove";
-import {
-    hoverCard,
-    springConfig,
-    staggerContainer,
-    staggerItem,
-} from "../constants/animations";
+import BootIntro from "../components/BootIntro";
+import SkillOrbit from "../components/SkillOrbit";
 import DisplayLottie from "../components/DisplayLottie";
 import skillsLottie from "../assets/animations/skillsLottie.json";
 
+const BOOT_SEEN_KEY = "skills_boot_seen";
+
 export default function Skills() {
-    const [skills, setSkills] = useState({ languages: [], tools: [], fronterd: [], backend: []});
-    const [loading, setLoading] = useState(true);
-    const { handleMouseMove, mousePosition } = useMouseMove();
-    const categories = Object.keys(skills);
+    const [data, setData] = useState(null);
+    const [showBoot, setShowBoot] = useState(false);
+    const [bootKey, setBootKey] = useState(0);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const response = await fetch("/data/skills.json");
-                const data = await response.json();
-                setSkills(data.skills);
+                const json = await response.json();
+                setData(json);
             } catch (error) {
                 console.error("Error loading skills data:", error);
-            } finally {
-                setLoading(false);
             }
         }
 
         fetchData();
     }, []);
 
-    // Create separate mouseMove hooks for each category
-    const categoryHooks = {};
+    useEffect(() => {
+        if (!data) return;
+        const seen = window.sessionStorage.getItem(BOOT_SEEN_KEY);
+        if (!seen) setShowBoot(true);
+    }, [data]);
 
-    categories.forEach((category) => {
-        categoryHooks[category] = useMouseMove();
-    });
+    function finishBoot() {
+        setShowBoot(false);
+        window.sessionStorage.setItem(BOOT_SEEN_KEY, "1");
+    }
+
+    function replayBoot() {
+        setBootKey((k) => k + 1);
+        setShowBoot(true);
+    }
 
     return (
         <>
@@ -74,7 +76,6 @@ export default function Skills() {
                     property="twitter:description"
                     content="Technical skills in Android, Kotlin, Jetpack Compose and other technologies"
                 />
-                <meta property="og:image" content="/images/Jaguar000212.png" />
             </Head>
 
             <section className="section-padding">
@@ -90,10 +91,9 @@ export default function Skills() {
                                 My Skills
                             </h1>
                             <p className="text-gray-600 dark:text-gray-400 text-lg">
-                                Technologies and tools I use to bring mobile
-                                ideas to life. I'm constantly learning and
-                                expanding my toolkit to deliver exceptional
-                                mobile experiences.
+                                Technologies and tools I use to bring ideas
+                                to life, mapped as a living system rather
+                                than a list.
                             </p>
                         </motion.div>
                         <motion.div
@@ -106,65 +106,23 @@ export default function Skills() {
                         </motion.div>
                     </div>
 
-                    <motion.div
-                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                        variants={staggerContainer}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        {categories.map((category, catIndex) => {
-                            const { elementRef, isHovered, mouseHandlers } =
-                                categoryHooks[category];
-                            return (
-                                <motion.div
-                                    ref={elementRef}
-                                    key={category}
-                                    variants={staggerItem}
-                                    className={`card relative p-6 h-full rounded-xl shadow-sm ${
-                                        isHovered ? "gradient-border" : ""
-                                    }`}
-                                    whileHover={hoverCard(false)}
-                                    initial={{
-                                        boxShadow:
-                                            "0 1px 3px rgba(0, 0, 0, 0.05)",
-                                    }}
-                                    transition={springConfig}
-                                    onHoverStart={mouseHandlers.onMouseEnter}
-                                    onHoverEnd={mouseHandlers.onMouseLeave}
-                                    onMouseMove={mouseHandlers.onMouseMove}
-                                >
-                                    <h2 className="text-2xl font-bold mb-6 capitalize font-heading border-b pb-2 border-gray-200 dark:border-gray-700">
-                                        {category === "frontend"
-                                            ? "Frontend Technologies"
-                                            : category === "backend"
-                                            ? "Backend & Databases"
-                                            : category === "mobile"
-                                            ? "Mobile Development"
-                                            : category.charAt(0).toUpperCase() +
-                                              category.slice(1)}
-                                    </h2>
-
-                                    <div className="space-y-5">
-                                        {skills[category].map(
-                                            (skill, skillIndex) => (
-                                                <SkillBadge
-                                                    key={`${category}-${skillIndex}`}
-                                                    skill={{
-                                                        ...skill,
-                                                        icon: skill.icon,
-                                                    }}
-                                                    skillIndex={skillIndex}
-                                                    catIndex={catIndex}
-                                                />
-                                            )
-                                        )}
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
-                    </motion.div>
+                    {data ? (
+                        <SkillOrbit data={data} onReplayBoot={replayBoot} />
+                    ) : (
+                        <p className="text-gray-600 dark:text-gray-400">
+                            Loading...
+                        </p>
+                    )}
                 </div>
             </section>
+
+            {data && showBoot && (
+                <BootIntro
+                    key={bootKey}
+                    domains={data.domains}
+                    onFinish={finishBoot}
+                />
+            )}
         </>
     );
 }

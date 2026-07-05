@@ -7,10 +7,10 @@
         "location": "Bangalore, India",
         "duration": "August 2023 - Present",
         "highlights": [
+            "Built a custom Compiler, 'Kompile', in Kotlin",
             "Learning C Language and Data Structures",
             "Active member of GDSC, a community of developers by Google",
             "Member of CodeX, the coding club of MIT",
-            "Earned multiple certificates from Coursera and other platforms.",
             "Participated in many Hackathons and Coding Competitions"
         ],
         "logo": "/images/education-logos/manipal.png"
