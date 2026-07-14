@@ -15,9 +15,9 @@ if (!GITHUB_USERNAME || !GITHUB_TOKEN) {
     process.exit(0);
 }
 
-console.log(`Fetching pinned repositories for GitHub user: ${GITHUB_USERNAME}`);
+console.log(`Fetching GitHub data for user: ${GITHUB_USERNAME}`);
 
-async function fetchPinnedRepos() {
+async function fetchGitHubData() {
     return new Promise((resolve, reject) => {
         const query = `
             query {
@@ -46,6 +46,21 @@ async function fetchPinnedRepos() {
                             }
                         }
                     }
+                    contributionsCollection {
+                        contributionCalendar {
+                            totalContributions
+                        }
+                    }
+                    repositories(first: 100, ownerAffiliations: [OWNER], isFork: false, privacy: PUBLIC) {
+                        totalCount
+                        nodes {
+                            stargazerCount
+                            primaryLanguage {
+                                name
+                                color
+                            }
+                        }
+                    }
                 }
             }
         `;
@@ -60,7 +75,7 @@ async function fetchPinnedRepos() {
             }
         };
 
-        console.log('Making GraphQL request to fetch pinned repositories...');
+        console.log('Making GraphQL request to fetch GitHub data...');
 
         const req = https.request(options, (res) => {
             let responseData = '';
@@ -90,7 +105,8 @@ async function fetchPinnedRepos() {
                         return reject(new Error('Unexpected GraphQL response structure'));
                     }
 
-                    const pinnedRepos = parsedData.data.user.pinnedItems.nodes;
+                    const user = parsedData.data.user;
+                    const pinnedRepos = user.pinnedItems.nodes;
                     console.log(`Found ${pinnedRepos.length} pinned repositories`);
 
                     // Flatten topics array for each repo and remove repositoryTopics field
@@ -110,7 +126,34 @@ async function fetchPinnedRepos() {
                         };
                     });
 
-                    resolve(mappedRepos);
+                    const allRepos = user.repositories.nodes;
+                    const totalStars = allRepos.reduce((sum, r) => sum + r.stargazerCount, 0);
+
+                    const languageCounts = new Map();
+                    allRepos.forEach(r => {
+                        if (!r.primaryLanguage) return;
+                        const key = r.primaryLanguage.name;
+                        const existing = languageCounts.get(key);
+                        if (existing) {
+                            existing.count += 1;
+                        } else {
+                            languageCounts.set(key, {
+                                name: key, color: r.primaryLanguage.color, count: 1,
+                            });
+                        }
+                    });
+                    const topLanguages = [...languageCounts.values()]
+                        .sort((a, b) => b.count - a.count)
+                        .slice(0, 4);
+
+                    const stats = {
+                        totalStars,
+                        totalPublicRepos: user.repositories.totalCount,
+                        totalContributions: user.contributionsCollection.contributionCalendar.totalContributions,
+                        topLanguages,
+                    };
+
+                    resolve({repositories: mappedRepos, stats});
                 } catch (error) {
                     reject(new Error(`Error processing GraphQL response: ${error.message}`));
                 }
@@ -127,28 +170,28 @@ async function fetchPinnedRepos() {
 }
 
 async function main() {
-    console.log('Trying to fetch pinned repositories first...');
+    console.log('Trying to fetch GitHub data first...');
 
     try {
-        const pinnedRepos = await fetchPinnedRepos();
-        saveRepositories(pinnedRepos);
+        const {repositories, stats} = await fetchGitHubData();
+        saveGitHubData(repositories, stats);
     } catch (error) {
         console.error(
-            'Error fetching pinned repositories, keeping committed staticGithubData.json:',
+            'Error fetching GitHub data, keeping committed staticGithubData.json:',
             error.message
         );
     }
 }
 
-function saveRepositories(repositories) {
+function saveGitHubData(repositories, stats) {
     const outputData = {
-        repositories, lastFetched: new Date().toISOString(),
+        repositories, stats, lastFetched: new Date().toISOString(),
     };
 
     const outputPath = path.join(__dirname, '../public/data/staticGithubData.json');
     fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
 
-    console.log(`✅ Successfully saved ${repositories.length} repositories to ${outputPath}`);
+    console.log(`✅ Successfully saved ${repositories.length} repositories and stats to ${outputPath}`);
 }
 
 main();

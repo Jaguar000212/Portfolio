@@ -4,6 +4,7 @@ import "../styles/fonts.css";
 import "../styles/card-effects.css";
 import "../styles/skills-orbit.css";
 import {jetbrainsMono, poppins, spaceGrotesk} from "../lib/fonts";
+import {MotionConfig} from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
@@ -25,15 +26,17 @@ function MyApp({Component, pageProps}) {
             {/* font-body sets the real default here, since <html> (rendered
                 by _document.js) can't see these variables — next/font isn't
                 supported there, and CSS vars only cascade downward. */}
-            <div
-                className={`min-h-screen flex flex-col font-body ${poppins.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
-            >
-                <Navbar/>
-                <main className="flex-grow">
-                    <Component {...pageProps} />
-                </main>
-                <Footer/>
-            </div>
+            <MotionConfig reducedMotion="user">
+                <div
+                    className={`min-h-screen flex flex-col font-body ${poppins.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+                >
+                    <Navbar/>
+                    <main className="flex-grow">
+                        <Component {...pageProps} />
+                    </main>
+                    <Footer/>
+                </div>
+            </MotionConfig>
         </ThemeProvider>
     );
 }

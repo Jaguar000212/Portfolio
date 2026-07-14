@@ -3,6 +3,7 @@ import {motion} from "framer-motion";
 import {useMouseMove} from "../hooks/useMouseMove";
 import {cardHoverShadow, cardHoverTransition} from "../constants/animations";
 import DisplayLottie from "../components/DisplayLottie";
+import GitHubStats from "../components/GitHubStats";
 import Seo from "../components/Seo";
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
                 title="Shryansh | Software Developer"
                 description="Portfolio website for Shryansh, a Software Engineer specializing in native Android development with Kotlin and backend systems with Python"
                 path="/"
+                personSchema
             />
 
             <section
@@ -325,6 +327,8 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
+
+                        <GitHubStats />
                     </motion.div>
                 </div>
             </section>
