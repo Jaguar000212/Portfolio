@@ -8,7 +8,11 @@ const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 if (!GITHUB_USERNAME || !GITHUB_TOKEN) {
-    throw new Error("Environment variables GITHUB_USERNAME and GITHUB_TOKEN must be defined.");
+    console.warn(
+        "GITHUB_USERNAME and/or GITHUB_TOKEN are not set — skipping GitHub repo fetch " +
+        "and keeping the committed public/data/staticGithubData.json as-is."
+    );
+    process.exit(0);
 }
 
 console.log(`Fetching pinned repositories for GitHub user: ${GITHUB_USERNAME}`);
@@ -123,18 +127,16 @@ async function fetchPinnedRepos() {
 }
 
 async function main() {
-    try {
-        console.log('Trying to fetch pinned repositories first...');
+    console.log('Trying to fetch pinned repositories first...');
 
-        try {
-            const pinnedRepos = await fetchPinnedRepos();
-            saveRepositories(pinnedRepos);
-        } catch (pinnedError) {
-            console.error('Error fetching pinned repositories:', pinnedError.message);
-        }
+    try {
+        const pinnedRepos = await fetchPinnedRepos();
+        saveRepositories(pinnedRepos);
     } catch (error) {
-        console.error('Fatal error:', error.message);
-        process.exit(1);
+        console.error(
+            'Error fetching pinned repositories, keeping committed staticGithubData.json:',
+            error.message
+        );
     }
 }
 

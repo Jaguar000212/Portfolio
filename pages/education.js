@@ -1,7 +1,7 @@
-import Head from "next/head";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import EducationCard from "../components/EducationCard";
+import Seo from "../components/Seo";
 
 export default function Education() {
     const [education, setEducation] = useState([]);
@@ -25,39 +25,11 @@ export default function Education() {
 
     return (
         <>
-            <Head>
-                <title>Education | Jaguar000212</title>
-                <meta name="title" content="Education | Jaguar000212" />
-                <meta
-                    name="description"
-                    content="Educational background and qualifications in computer science"
-                />
-                <meta property="og:type" content="website" />
-                <meta
-                    property="og:url"
-                    content="https://www.jaguar000212.me/"
-                />
-                <meta property="og:title" content="Education | Jaguar000212" />
-                <meta
-                    property="og:description"
-                    content="Educational background and qualifications in computer science"
-                />
-                <meta property="og:image" content="/images/Jaguar000212.png" />
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta
-                    property="twitter:url"
-                    content="https://www.jaguar000212.me/"
-                />
-                <meta
-                    property="twitter:title"
-                    content="Education | Jaguar000212"
-                />
-                <meta
-                    property="twitter:description"
-                    content="Educational background and qualifications in computer science"
-                />
-                <meta property="og:image" content="/images/Jaguar000212.png" />
-            </Head>
+            <Seo
+                title="Education | Jaguar000212"
+                description="Educational background and qualifications in computer science"
+                path="/education"
+            />
 
             <section className="section-padding">
                 <div className="container-custom">

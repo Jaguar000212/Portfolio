@@ -10,11 +10,9 @@ function Icon({ icon, className }) {
     const resolved = resolveIcon(icon);
     if (resolved.type === "svg") {
         return (
-            <svg
-                viewBox="0 0 24 24"
-                className={className}
-                dangerouslySetInnerHTML={{ __html: resolved.value }}
-            />
+            <svg viewBox="0 0 24 24" className={className}>
+                <path d={resolved.value} />
+            </svg>
         );
     }
     if (resolved.type === "img") {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ThemeToggle from "./ThemeToggle";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -85,31 +85,33 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Navigation */}
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="md:hidden py-4"
-                    >
-                        <ul className="flex flex-col space-y-4">
-                            {navItems.map((item) => (
-                                <li key={item.name}>
-                                    <Link
-                                        href={item.path}
-                                        className={`block font-medium font-heading px-3 py-2 rounded-md transition-colors duration-300 ${
-                                            router.pathname === item.path
-                                                ? "text-primary bg-gray-100 dark:bg-gray-800"
-                                                : "text-gray-700 dark:text-gray-300 hover:text-secondary dark:hover:text-secondary"
-                                        }`}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                )}
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="md:hidden py-4"
+                        >
+                            <ul className="flex flex-col space-y-4">
+                                {navItems.map((item) => (
+                                    <li key={item.name}>
+                                        <Link
+                                            href={item.path}
+                                            className={`block font-medium font-heading px-3 py-2 rounded-md transition-colors duration-300 ${
+                                                router.pathname === item.path
+                                                    ? "text-primary bg-gray-100 dark:bg-gray-800"
+                                                    : "text-gray-700 dark:text-gray-300 hover:text-secondary dark:hover:text-secondary"
+                                            }`}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </nav>
     );

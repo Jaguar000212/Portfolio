@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useMouseMove } from "../hooks/useMouseMove";
+import { cardHoverShadow, cardHoverTransition } from "../constants/animations";
 
 const EducationCard = ({ education }) => {
     const { elementRef, isHovered, mouseHandlers } = useMouseMove();
@@ -13,15 +14,10 @@ const EducationCard = ({ education }) => {
             }`}
             whileHover={{
                 y: -5,
-                boxShadow:
-                    "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                boxShadow: cardHoverShadow,
             }}
             initial={{ boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)" }}
-            transition={{
-                duration: 0.3,
-                type: "tween",
-                ease: "easeOut",
-            }}
+            transition={cardHoverTransition}
             onHoverStart={mouseHandlers.onMouseEnter}
             onHoverEnd={mouseHandlers.onMouseLeave}
             onMouseMove={mouseHandlers.onMouseMove}
@@ -36,8 +32,8 @@ const EducationCard = ({ education }) => {
                                 "/images/education-placeholder.svg"
                             }
                             alt={education.institution}
-                            layout="fill"
-                            objectFit="contain"
+                            fill
+                            style={{ objectFit: "contain" }}
                         />
                     </div>
 

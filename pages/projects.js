@@ -1,10 +1,9 @@
-import Head from "next/head";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import GitHubProjectCard from "../components/GitHubProjectCard";
 import DisplayLottie from "../components/DisplayLottie";
-import androidLottie from "../assets/animations/projectsLottie.json";
+import Seo from "../components/Seo";
 
 export default function Projects() {
     const [projects, setProjects] = useState([]);
@@ -15,14 +14,11 @@ export default function Projects() {
         const loadData = async () => {
             setIsLoading(true);
             try {
-                // Fetch projects data
-                const projectsResponse = await fetch("/data/projects.json");
+                const [projectsResponse, githubResponse] = await Promise.all([
+                    fetch("/data/projects.json"),
+                    fetch("/data/staticGithubData.json"),
+                ]);
                 const projectsData = await projectsResponse.json();
-
-                // Fetch GitHub projects data
-                const githubResponse = await fetch(
-                    "/data/staticGithubData.json"
-                );
                 const githubData = await githubResponse.json();
 
                 setProjects(projectsData.projects);
@@ -44,39 +40,11 @@ export default function Projects() {
 
     return (
         <>
-            <Head>
-                <title>Projects | Jaguar000212</title>
-                <meta name="title" content="Projects | Jaguar000212" />
-                <meta
-                    name="description"
-                    content="Showcase of Android application projects and other significant works of Shryansh"
-                />
-                <meta property="og:type" content="website" />
-                <meta
-                    property="og:url"
-                    content="https://www.jaguar000212.me/"
-                />
-                <meta property="og:title" content="Projects | Jaguar000212" />
-                <meta
-                    property="og:description"
-                    content="Showcase of Android application projects and other significant works of Shryansh"
-                />
-                <meta property="og:image" content="/images/Jaguar000212.png" />
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta
-                    property="twitter:url"
-                    content="https://www.jaguar000212.me/"
-                />
-                <meta
-                    property="twitter:title"
-                    content="Projects | Jaguar000212"
-                />
-                <meta
-                    property="twitter:description"
-                    content="Showcase of Android application projects and other significant works of Shryansh"
-                />
-                <meta property="og:image" content="/images/Jaguar000212.png" />
-            </Head>
+            <Seo
+                title="Projects | Jaguar000212"
+                description="Showcase of Android application projects and other significant works of Shryansh"
+                path="/projects"
+            />
 
             <section className="section-padding lg:pt-0">
                 <div className="container-custom">
@@ -107,7 +75,9 @@ export default function Projects() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            {<DisplayLottie animationData={androidLottie} />}
+                            {
+                                <DisplayLottie animationPath="/animations/projectsLottie.json" />
+                            }
                         </motion.div>
                     </div>
 

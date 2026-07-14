@@ -1,10 +1,17 @@
-import Head from "next/head";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import BootIntro from "../components/BootIntro";
-import SkillOrbit from "../components/SkillOrbit";
 import DisplayLottie from "../components/DisplayLottie";
-import skillsLottie from "../assets/animations/skillsLottie.json";
+import Seo from "../components/Seo";
+
+// Code-split these out of the shared app bundle: they (and their
+// simple-icons dependency) are only ever needed on this page.
+const BootIntro = dynamic(() => import("../components/BootIntro"), {
+    ssr: false,
+});
+const SkillOrbit = dynamic(() => import("../components/SkillOrbit"), {
+    ssr: false,
+});
 
 const BOOT_SEEN_KEY = "skills_boot_seen";
 
@@ -45,38 +52,11 @@ export default function Skills() {
 
     return (
         <>
-            <Head>
-                <title>Skills | Jaguar000212</title>
-                <meta name="title" content="Skills | Jaguar000212" />
-                <meta
-                    name="description"
-                    content="Technical skills in Android, Kotlin, Jetpack Compose and other technologies"
-                />
-                <meta property="og:type" content="website" />
-                <meta
-                    property="og:url"
-                    content="https://www.jaguar000212.me/"
-                />
-                <meta property="og:title" content="Skills | Jaguar000212" />
-                <meta
-                    property="og:description"
-                    content="Technical skills in Android, Kotlin, Jetpack Compose and other technologies"
-                />
-                <meta property="og:image" content="/images/Jaguar000212.png" />
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta
-                    property="twitter:url"
-                    content="https://www.jaguar000212.me/"
-                />
-                <meta
-                    property="twitter:title"
-                    content="Skills | Jaguar000212"
-                />
-                <meta
-                    property="twitter:description"
-                    content="Technical skills in Android, Kotlin, Jetpack Compose and other technologies"
-                />
-            </Head>
+            <Seo
+                title="Skills | Jaguar000212"
+                description="Technical skills in Android, Kotlin, Jetpack Compose and other technologies"
+                path="/skills"
+            />
 
             <section className="section-padding">
                 <div className="container-custom">
@@ -102,7 +82,9 @@ export default function Skills() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            {<DisplayLottie animationData={skillsLottie} />}
+                            {
+                                <DisplayLottie animationPath="/animations/skillsLottie.json" />
+                            }
                         </motion.div>
                     </div>
 

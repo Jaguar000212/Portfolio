@@ -2,6 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { useMouseMove } from "../hooks/useMouseMove";
+import { cardHoverShadow, cardHoverTransition } from "../constants/animations";
+import ArrowLinkIcon from "./ArrowLinkIcon";
 
 const SpecializationTile = ({ specialization, certificates }) => {
     const { elementRef, isHovered, mouseHandlers } = useMouseMove();
@@ -19,15 +21,10 @@ const SpecializationTile = ({ specialization, certificates }) => {
             }`}
             whileHover={{
                 y: -5,
-                boxShadow:
-                    "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                boxShadow: cardHoverShadow,
             }}
             initial={{ boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)" }}
-            transition={{
-                duration: 0.3,
-                type: "tween",
-                ease: "easeOut",
-            }}
+            transition={cardHoverTransition}
             onHoverStart={mouseHandlers.onMouseEnter}
             onHoverEnd={mouseHandlers.onMouseLeave}
             onMouseMove={mouseHandlers.onMouseMove}
@@ -39,8 +36,8 @@ const SpecializationTile = ({ specialization, certificates }) => {
                         "/images/certificate-placeholder.svg"
                     }
                     alt={specialization.name}
-                    layout="fill"
-                    objectFit="contain"
+                    fill
+                    style={{ objectFit: "contain" }}
                     className="bg-white"
                 />
             </div>
@@ -104,17 +101,7 @@ const SpecializationTile = ({ specialization, certificates }) => {
                     className="inline-flex mt-auto items-center text-primary hover:underline text-sm font-body"
                 >
                     <span>View Certificate</span>
-                    <svg
-                        className="w-4 h-4 ml-1"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
+                    <ArrowLinkIcon />
                 </a>
             </div>
         </motion.div>

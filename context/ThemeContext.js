@@ -11,24 +11,12 @@ export const ThemeProvider = ({ children }) => {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    // Initialize theme from localStorage or system preference
+    // The inline script in _document.js already applies the "dark" class
+    // before hydration (to avoid a flash of the wrong theme), so we just
+    // read that decision back into state here instead of recomputing it.
     useEffect(() => {
-        // Check if we're in the browser environment
-        if (typeof window !== "undefined") {
-            const savedTheme = localStorage.getItem("theme");
-            const prefersDark = window.matchMedia(
-                "(prefers-color-scheme: dark)"
-            ).matches;
-
-            if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-                setIsDarkMode(true);
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-            }
-
-            setIsLoaded(true);
-        }
+        setIsDarkMode(document.documentElement.classList.contains("dark"));
+        setIsLoaded(true);
     }, []);
 
     // Toggle theme function

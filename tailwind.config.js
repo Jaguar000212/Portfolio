@@ -4,15 +4,14 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: "#0070f3",
-                secondary: "#ff0080",
+                // Canonical values live in styles/globals.css (:root); these
+                // read from the same CSS variables so Tailwind utilities
+                // (bg-primary, text-primary, ...) and the raw CSS in
+                // card-effects.css never drift apart.
+                primary: "var(--color-primary)",
+                secondary: "var(--color-secondary)",
                 dark: "#111111",
                 light: "#ffffff",
-            },
-            fontFamily: {
-                sans: ["Poppins", "sans-serif"],
-                heading: ["Space Grotesk", "sans-serif"],
-                signature: ["Dancing Script", "cursive"],
             },
         },
     },

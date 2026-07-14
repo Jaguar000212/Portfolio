@@ -1,9 +1,9 @@
-import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useFeatureCards } from "../hooks/useFeatureCards";
+import { useMouseMove } from "../hooks/useMouseMove";
+import { cardHoverShadow, cardHoverTransition } from "../constants/animations";
 import DisplayLottie from "../components/DisplayLottie";
-import developerLottie from "../assets/animations/developerLottie";
+import Seo from "../components/Seo";
 
 export default function Home() {
     const container = {
@@ -21,55 +21,17 @@ export default function Home() {
         show: { opacity: 1, y: 0 },
     };
 
-    // Use our custom hook for feature card animations
-    const {
-        hoveredCards,
-        card1Ref,
-        card2Ref,
-        card3Ref,
-        springConfig,
-        cardHandlers,
-    } = useFeatureCards();
+    const card1 = useMouseMove();
+    const card2 = useMouseMove();
+    const card3 = useMouseMove();
 
     return (
         <>
-            <Head>
-                <title>Shryansh | Software Developer</title>
-                <meta name="title" content="Shryansh | Software Developer" />
-                <meta
-                    name="description"
-                    content="Portfolio website for Shryansh, a Software Engineer specializing in native Android development with Kotlin and backend systems with Python"
-                />
-                <meta property="og:type" content="website" />
-                <meta
-                    property="og:url"
-                    content="https://www.jaguar000212.me/"
-                />
-                <meta
-                    property="og:title"
-                    content="Shryansh | Software Developer"
-                />
-                <meta
-                    property="og:description"
-                    content="Portfolio website for Shryansh, a Software Engineer specializing in native Android development with Kotlin and backend systems with Python"
-                />
-                <meta property="og:image" content="/images/Jaguar000212.png" />
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta
-                    property="twitter:url"
-                    content="https://www.jaguar000212.me/"
-                />
-                <meta
-                    property="twitter:title"
-                    content="Shryansh | Software Developer"
-                />
-                <meta
-                    property="twitter:description"
-                    content="Portfolio website for Shryansh, a Software Engineer specializing in native Android development with Kotlin and backend systems with Python"
-                />
-                <meta property="og:image" content="/images/Jaguar000212.png" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <Seo
+                title="Shryansh | Software Developer"
+                description="Portfolio website for Shryansh, a Software Engineer specializing in native Android development with Kotlin and backend systems with Python"
+                path="/"
+            />
 
             <section className="section-padding bg-gradient-to-b from-white to-gray-50 dark:from-dark dark:to-gray-900 min-h-[calc(100vh-64px)] flex items-center">
                 <div className="container-custom">
@@ -128,7 +90,9 @@ export default function Home() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            {<DisplayLottie animationData={developerLottie} />}
+                            {
+                                <DisplayLottie animationPath="/animations/developerLottie.json" />
+                            }
                         </motion.div>
                     </div>
 
@@ -151,20 +115,19 @@ export default function Home() {
 
                         <div className="grid md:grid-cols-3 gap-8">
                             <motion.div
-                                ref={card1Ref}
+                                ref={card1.elementRef}
                                 className={`card p-8 rounded-xl bg-white dark:bg-gray-900 shadow-sm relative overflow-hidden group ${
-                                    hoveredCards.card1 ? "gradient-border" : ""
+                                    card1.isHovered ? "gradient-border" : ""
                                 }`}
                                 whileHover={{
                                     y: -8,
-                                    boxShadow:
-                                        "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                                    boxShadow: cardHoverShadow,
                                 }}
                                 initial={{ y: 0 }}
-                                transition={springConfig}
-                                onHoverStart={cardHandlers.card1.onHoverStart}
-                                onHoverEnd={cardHandlers.card1.onHoverEnd}
-                                onMouseMove={cardHandlers.card1.onMouseMove}
+                                transition={cardHoverTransition}
+                                onHoverStart={card1.mouseHandlers.onMouseEnter}
+                                onHoverEnd={card1.mouseHandlers.onMouseLeave}
+                                onMouseMove={card1.mouseHandlers.onMouseMove}
                             >
                                 <div className="bg-gradient-to-br from-primary to-blue-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md transform -rotate-6 group-hover:rotate-0 group-hover:scale-110 transition-all duration-100">
                                     <svg
@@ -209,20 +172,19 @@ export default function Home() {
                             </motion.div>
 
                             <motion.div
-                                ref={card2Ref}
+                                ref={card2.elementRef}
                                 className={`card p-8 rounded-xl bg-white dark:bg-gray-900 shadow-sm relative overflow-hidden group ${
-                                    hoveredCards.card2 ? "gradient-border" : ""
+                                    card2.isHovered ? "gradient-border" : ""
                                 }`}
                                 whileHover={{
                                     y: -8,
-                                    boxShadow:
-                                        "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                                    boxShadow: cardHoverShadow,
                                 }}
                                 initial={{ y: 0 }}
-                                transition={springConfig}
-                                onHoverStart={cardHandlers.card2.onHoverStart}
-                                onHoverEnd={cardHandlers.card2.onHoverEnd}
-                                onMouseMove={cardHandlers.card2.onMouseMove}
+                                transition={cardHoverTransition}
+                                onHoverStart={card2.mouseHandlers.onMouseEnter}
+                                onHoverEnd={card2.mouseHandlers.onMouseLeave}
+                                onMouseMove={card2.mouseHandlers.onMouseMove}
                             >
                                 <div className="bg-gradient-to-br from-secondary to-pink-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md transform rotate-6 group-hover:rotate-0 group-hover:scale-110 transition-all duration-100">
                                     <svg
@@ -266,20 +228,19 @@ export default function Home() {
                             </motion.div>
 
                             <motion.div
-                                ref={card3Ref}
+                                ref={card3.elementRef}
                                 className={`card p-8 rounded-xl bg-white dark:bg-gray-900 shadow-sm relative overflow-hidden group ${
-                                    hoveredCards.card3 ? "gradient-border" : ""
+                                    card3.isHovered ? "gradient-border" : ""
                                 }`}
                                 whileHover={{
                                     y: -8,
-                                    boxShadow:
-                                        "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                                    boxShadow: cardHoverShadow,
                                 }}
                                 initial={{ y: 0 }}
-                                transition={springConfig}
-                                onHoverStart={cardHandlers.card3.onHoverStart}
-                                onHoverEnd={cardHandlers.card3.onHoverEnd}
-                                onMouseMove={cardHandlers.card3.onMouseMove}
+                                transition={cardHoverTransition}
+                                onHoverStart={card3.mouseHandlers.onMouseEnter}
+                                onHoverEnd={card3.mouseHandlers.onMouseLeave}
+                                onMouseMove={card3.mouseHandlers.onMouseMove}
                             >
                                 <div className="bg-gradient-to-br from-green-500 to-teal-500 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md transform -rotate-3 group-hover:rotate-0 group-hover:scale-110 transition-all duration-100">
                                     <svg

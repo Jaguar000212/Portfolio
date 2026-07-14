@@ -1,37 +1,8 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
 
 const ThemeToggle = () => {
-    const [darkMode, setDarkMode] = useState(false);
-
-    // On mount, get theme preference from localStorage or system preference
-    useEffect(() => {
-        const isDarkMode =
-            localStorage.getItem("theme") === "dark" ||
-            (!localStorage.getItem("theme") &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-        setDarkMode(isDarkMode);
-        if (isDarkMode) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-    }, []);
-
-    // Toggle theme and update localStorage
-    const toggleTheme = () => {
-        const newDarkMode = !darkMode;
-        setDarkMode(newDarkMode);
-
-        if (newDarkMode) {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        }
-    };
+    const { isDarkMode, toggleTheme, isLoaded } = useTheme();
 
     return (
         <button
@@ -40,10 +11,11 @@ const ThemeToggle = () => {
             aria-label="Toggle Dark Mode"
         >
             <motion.div
-                animate={{ rotate: darkMode ? 360 : 0 }}
+                className="w-5 h-5"
+                animate={{ rotate: isDarkMode ? 360 : 0 }}
                 transition={{ duration: 0.5 }}
             >
-                {darkMode ? (
+                {!isLoaded ? null : isDarkMode ? (
                     <svg
                         className="w-5 h-5"
                         fill="currentColor"

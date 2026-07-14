@@ -9,18 +9,13 @@
 
 /* Font utility classes aligned with tailwind config */
 .font-heading {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-space-grotesk), sans-serif;
 }
 
 .font-body {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins), sans-serif;
 }
 
-.font-signature {
-    font-family: 'Agustina Regular', cursive;
-}
-
-/* For backward compatibility */
 .signature-text {
     font-family: 'Agustina Regular', cursive;
     font-weight: bold;

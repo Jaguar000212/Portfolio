@@ -267,6 +267,58 @@
         "Android",
         "Jetpack Compose"
       ]
+    },
+    {
+      "id": 22,
+      "name": "Kotlin for Java Developers",
+      "issuer": "JetBrains Academy",
+      "date": "August 5, 2025",
+      "image": "/images/certificate-logos/jbacad.webp",
+      "link": "https://coursera.org/verify/TSOPK83I7IO9",
+      "technologies": [
+        "Kotlin"
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Open Source Software Development Methods",
+      "issuer": "The Linux Foundation",
+      "date": "December 8, 2025",
+      "image": "/images/certificate-logos/tlf.png",
+      "link": "https://coursera.org/verify/RY3S0RBCTCD3",
+      "technologies": [
+        "CI/CD",
+        "Version Control (Git)",
+        "Open Source Technology",
+        "Software Development Methodologies"
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Working with Data in Android",
+      "issuer": "Meta",
+      "date": "July 10, 2026",
+      "image": "/images/certificate-logos/meta.png",
+      "link": "https://coursera.org/verify/Z6P4SSIQ63PC",
+      "technologies": [
+        "Kotlin",
+        "Android",
+        "RoomDB",
+        "Restful API"
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Mobile Development and JavaScript",
+      "issuer": "Meta",
+      "date": "July 13, 2026",
+      "image": "/images/certificate-logos/meta.png",
+      "link": "https://coursera.org/verify/AU5AJIOJ7TVR",
+      "technologies": [
+        "JavaScript",
+        "Jest",
+        "Node.js"
+      ]
     }
   ]
 }

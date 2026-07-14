@@ -21,8 +21,8 @@
     padding: 2px;
     /* border width */
     background: radial-gradient(600px circle at var(--x) var(--y),
-            var(--color-primary, #0070f3),
-            var(--color-secondary, #ff0080),
+            var(--color-primary),
+            var(--color-secondary),
             transparent 40%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
