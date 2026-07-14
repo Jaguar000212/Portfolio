@@ -1,12 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
-import {
-    GITHUB_PATH,
-    GMAIL_PATH,
-    FACEBOOK_PATH,
-    INSTAGRAM_PATH,
-    X_PATH,
-} from "../constants/brandIcons";
+import {motion} from "framer-motion";
+import {FACEBOOK_PATH, GITHUB_PATH, GMAIL_PATH, INSTAGRAM_PATH, X_PATH,} from "../constants/brandIcons";
 
 // LinkedIn has no simple-icons entry (removed upstream), so it renders as
 // a plain "in" badge instead of a logo.
@@ -49,7 +43,7 @@ const socials = [
     },
 ];
 
-const SocialMedia = ({ className = "" }) => {
+const SocialMedia = ({className = ""}) => {
     return (
         <div className={`flex flex-wrap justify-center gap-4 ${className}`}>
             {socials.map((social) => (
@@ -59,13 +53,13 @@ const SocialMedia = ({ className = "" }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`icon-button ${social.name} w-10 h-10 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 ${social.color} hover:text-white transition-all duration-300`}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{scale: 1.1}}
+                    whileTap={{scale: 0.95}}
                     aria-label={social.name}
                 >
                     {social.path ? (
                         <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-                            <path d={social.path} />
+                            <path d={social.path}/>
                         </svg>
                     ) : (
                         <span className="text-sm font-bold leading-none">in</span>

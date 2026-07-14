@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import {useRef, useState} from "react";
 
 /**
  * Hook for tracking mouse position on an element and applying it to CSS variables

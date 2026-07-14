@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import {motion} from "framer-motion";
+import {useEffect, useState} from "react";
 import ProjectCard from "../components/ProjectCard";
 import GitHubProjectCard from "../components/GitHubProjectCard";
 import DisplayLottie from "../components/DisplayLottie";
@@ -53,9 +53,9 @@ export default function Projects() {
                             className={
                                 "md:justify-self-start justify-self-center"
                             }
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.5}}
                         >
                             <h1 className="text-3xl md:text-4xl font-bold mb-2 font-heading">
                                 My Projects
@@ -71,12 +71,12 @@ export default function Projects() {
 
                         <motion.div
                             className="order-1 md:order-2 md:w-1/2 w-2/3 md:justify-self-end justify-self-center"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8 }}
+                            initial={{opacity: 0, scale: 0.8}}
+                            animate={{opacity: 1, scale: 1}}
+                            transition={{duration: 0.8}}
                         >
                             {
-                                <DisplayLottie animationPath="/animations/projectsLottie.json" />
+                                <DisplayLottie animationPath="/animations/projectsLottie.json"/>
                             }
                         </motion.div>
                     </div>
@@ -85,9 +85,9 @@ export default function Projects() {
                     <div className="mb-16">
                         <motion.h2
                             className="text-2xl font-bold mb-6 font-heading"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.5, delay: 0.2}}
                         >
                             Featured Projects
                         </motion.h2>
@@ -95,14 +95,14 @@ export default function Projects() {
                             {bigProjects.map((project, index) => (
                                 <motion.div
                                     key={project.id}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    initial={{opacity: 0, y: 20}}
+                                    animate={{opacity: 1, y: 0}}
                                     transition={{
                                         delay: index * 0.1 + 0.3,
                                         duration: 0.5,
                                     }}
                                 >
-                                    <ProjectCard project={project} />
+                                    <ProjectCard project={project}/>
                                 </motion.div>
                             ))}
                         </div>
@@ -112,30 +112,31 @@ export default function Projects() {
                     <div>
                         <motion.h2
                             className="text-2xl font-bold mb-6 font-heading"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.5, delay: 0.4}}
                         >
                             Open Source Projects
                         </motion.h2>
 
                         {isLoading ? (
                             <div className="flex justify-center py-10">
-                                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+                                <div
+                                    className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
                             </div>
                         ) : githubProjects.length > 0 ? (
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {githubProjects.map((project, index) => (
                                     <motion.div
                                         key={project.id}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
+                                        initial={{opacity: 0, y: 20}}
+                                        animate={{opacity: 1, y: 0}}
                                         transition={{
                                             delay: index * 0.1 + 0.5,
                                             duration: 0.5,
                                         }}
                                     >
-                                        <GitHubProjectCard project={project} />
+                                        <GitHubProjectCard project={project}/>
                                     </motion.div>
                                 ))}
                             </div>

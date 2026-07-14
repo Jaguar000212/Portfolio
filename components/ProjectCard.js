@@ -24,7 +24,7 @@ const ProjectCard = ({project}) => {
                 src={project.image || "/images/project-placeholder.svg"}
                 alt={project.title}
                 fill
-                style={{ objectFit: "contain" }}
+                style={{objectFit: "contain"}}
             />
         </div>
 
@@ -53,7 +53,7 @@ const ProjectCard = ({project}) => {
                     className="font-body inline-flex items-center text-primary hover:underline"
                 >
                     <span>View on GitHub</span>
-                    <ArrowLinkIcon />
+                    <ArrowLinkIcon/>
                 </a></div>
         </div>
     </motion.div>);

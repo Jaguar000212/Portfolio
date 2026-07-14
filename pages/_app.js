@@ -3,13 +3,13 @@ import "../styles/animations.css";
 import "../styles/fonts.css";
 import "../styles/card-effects.css";
 import "../styles/skills-orbit.css";
-import { poppins, spaceGrotesk, jetbrainsMono } from "../lib/fonts";
+import {jetbrainsMono, poppins, spaceGrotesk} from "../lib/fonts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
-import { ThemeProvider } from "../context/ThemeContext";
+import {ThemeProvider} from "../context/ThemeContext";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({Component, pageProps}) {
     return (
         <ThemeProvider>
             <Head>
@@ -28,11 +28,11 @@ function MyApp({ Component, pageProps }) {
             <div
                 className={`min-h-screen flex flex-col font-body ${poppins.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
             >
-                <Navbar />
+                <Navbar/>
                 <main className="flex-grow">
                     <Component {...pageProps} />
                 </main>
-                <Footer />
+                <Footer/>
             </div>
         </ThemeProvider>
     );

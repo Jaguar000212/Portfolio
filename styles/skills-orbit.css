@@ -48,14 +48,13 @@
     --orbit-core-bg: radial-gradient(circle at 40% 35%, rgba(77, 141, 255, 0.28), rgba(10, 12, 20, 0.94));
     --orbit-core-border: rgba(77, 141, 255, 0.4);
     --orbit-core-glow: rgba(77, 141, 255, 0.35);
-    --orbit-starfield:
-        radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.9), transparent 60%),
-        radial-gradient(1px 1px at 78% 14%, rgba(255, 255, 255, 0.7), transparent 60%),
-        radial-gradient(1.5px 1.5px at 32% 68%, rgba(255, 255, 255, 0.8), transparent 60%),
-        radial-gradient(1px 1px at 88% 76%, rgba(255, 255, 255, 0.6), transparent 60%),
-        radial-gradient(1px 1px at 55% 88%, rgba(255, 255, 255, 0.7), transparent 60%),
-        radial-gradient(1.5px 1.5px at 6% 82%, rgba(255, 255, 255, 0.6), transparent 60%),
-        radial-gradient(1px 1px at 64% 38%, rgba(255, 255, 255, 0.55), transparent 60%);
+    --orbit-starfield: radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.9), transparent 60%),
+    radial-gradient(1px 1px at 78% 14%, rgba(255, 255, 255, 0.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 32% 68%, rgba(255, 255, 255, 0.8), transparent 60%),
+    radial-gradient(1px 1px at 88% 76%, rgba(255, 255, 255, 0.6), transparent 60%),
+    radial-gradient(1px 1px at 55% 88%, rgba(255, 255, 255, 0.7), transparent 60%),
+    radial-gradient(1.5px 1.5px at 6% 82%, rgba(255, 255, 255, 0.6), transparent 60%),
+    radial-gradient(1px 1px at 64% 38%, rgba(255, 255, 255, 0.55), transparent 60%);
 }
 
 .orbit-mono {
@@ -669,6 +668,7 @@
     .orbit-glow {
         animation: none !important;
     }
+
     .orbit-ring,
     .orbit-planet {
         transition: none !important;
@@ -727,9 +727,17 @@
     display: inline-block;
 }
 
-.orbit-boot-bar i.r { background: #ff5f56; }
-.orbit-boot-bar i.y { background: #ffbd2e; }
-.orbit-boot-bar i.g { background: #27c93f; }
+.orbit-boot-bar i.r {
+    background: #ff5f56;
+}
+
+.orbit-boot-bar i.y {
+    background: #ffbd2e;
+}
+
+.orbit-boot-bar i.g {
+    background: #27c93f;
+}
 
 .orbit-boot-bar span {
     margin-left: 0.6rem;
@@ -749,10 +757,21 @@
     white-space: pre-wrap;
 }
 
-.orbit-boot-body .prompt { color: #7fb0ff; }
-.orbit-boot-body .ok { color: #ff5ca8; }
-.orbit-boot-body .dim { color: rgba(255, 255, 255, 0.42); }
-.orbit-boot-body .arrow { color: #7fb0ff; }
+.orbit-boot-body .prompt {
+    color: #7fb0ff;
+}
+
+.orbit-boot-body .ok {
+    color: #ff5ca8;
+}
+
+.orbit-boot-body .dim {
+    color: rgba(255, 255, 255, 0.42);
+}
+
+.orbit-boot-body .arrow {
+    color: #7fb0ff;
+}
 
 .orbit-boot-cursor {
     display: inline-block;

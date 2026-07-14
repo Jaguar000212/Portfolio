@@ -84,8 +84,8 @@ const SKILL_ICONS = {
 // - an http(s) URL -> <img> tag (lets new logos be added via JSON only, no rebuild)
 // - anything else / absent -> a plain accent dot (used for architecture & pattern skills)
 export function resolveIcon(icon) {
-    if (!icon) return { type: "dot" };
-    if (/^https?:\/\//.test(icon)) return { type: "img", value: icon };
-    if (SKILL_ICONS[icon]) return { type: "svg", value: SKILL_ICONS[icon] };
-    return { type: "dot" };
+    if (!icon) return {type: "dot"};
+    if (/^https?:\/\//.test(icon)) return {type: "img", value: icon};
+    if (SKILL_ICONS[icon]) return {type: "svg", value: SKILL_ICONS[icon]};
+    return {type: "dot"};
 }

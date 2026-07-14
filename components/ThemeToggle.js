@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import { useTheme } from "../context/ThemeContext";
+import {motion} from "framer-motion";
+import {useTheme} from "../context/ThemeContext";
 
 const ThemeToggle = () => {
-    const { isDarkMode, toggleTheme, isLoaded } = useTheme();
+    const {isDarkMode, toggleTheme, isLoaded} = useTheme();
 
     return (
         <button
@@ -12,8 +12,8 @@ const ThemeToggle = () => {
         >
             <motion.div
                 className="w-5 h-5"
-                animate={{ rotate: isDarkMode ? 360 : 0 }}
-                transition={{ duration: 0.5 }}
+                animate={{rotate: isDarkMode ? 360 : 0}}
+                transition={{duration: 0.5}}
             >
                 {!isLoaded ? null : isDarkMode ? (
                     <svg
@@ -33,7 +33,7 @@ const ThemeToggle = () => {
                         fill="currentColor"
                         viewBox="0 0 20 20"
                     >
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                     </svg>
                 )}
             </motion.div>

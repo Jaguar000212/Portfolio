@@ -1,8 +1,8 @@
 <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-    <rect width="300" height="200" fill="none" />
+    <rect width="300" height="200" fill="none"/>
     <g fill="none" stroke="#9CA3AF" stroke-width="2">
-        <rect x="55" y="35" width="190" height="130" rx="8" />
-        <path d="M75 65h150M75 90h150M75 115h100" />
-        <circle cx="150" cy="150" r="0" />
+        <rect x="55" y="35" width="190" height="130" rx="8"/>
+        <path d="M75 65h150M75 90h150M75 115h100"/>
+        <circle cx="150" cy="150" r="0"/>
     </g>
 </svg>

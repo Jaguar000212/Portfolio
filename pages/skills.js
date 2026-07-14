@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import DisplayLottie from "../components/DisplayLottie";
 import Seo from "../components/Seo";
 
@@ -63,9 +63,9 @@ export default function Skills() {
                     <div className="grid md:grid-cols-2 md:gap-12 items-center mb-12">
                         <motion.div
                             className="md:justify-self-start justify-self-center"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.5}}
                         >
                             <h1 className="text-3xl md:text-4xl font-bold mb-2 font-heading">
                                 My Skills
@@ -78,18 +78,18 @@ export default function Skills() {
                         </motion.div>
                         <motion.div
                             className="order-1 md:order-2 md:w-1/2 w-2/3 md:justify-self-end justify-self-center"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8 }}
+                            initial={{opacity: 0, scale: 0.8}}
+                            animate={{opacity: 1, scale: 1}}
+                            transition={{duration: 0.8}}
                         >
                             {
-                                <DisplayLottie animationPath="/animations/skillsLottie.json" />
+                                <DisplayLottie animationPath="/animations/skillsLottie.json"/>
                             }
                         </motion.div>
                     </div>
 
                     {data ? (
-                        <SkillOrbit data={data} onReplayBoot={replayBoot} />
+                        <SkillOrbit data={data} onReplayBoot={replayBoot}/>
                     ) : (
                         <p className="text-gray-600 dark:text-gray-400">
                             Loading...

@@ -4,10 +4,10 @@
 
 // Simple fade in animation
 export const fadeIn = {
-    hidden: { opacity: 0 },
+    hidden: {opacity: 0},
     visible: {
         opacity: 1,
-        transition: { duration: 0.6 },
+        transition: {duration: 0.6},
     },
 };
 

@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { resolveIcon } from "../constants/skillIcons";
+import {useEffect, useRef, useState} from "react";
+import {resolveIcon} from "../constants/skillIcons";
 
 function isRealTech(skill) {
     return Boolean(skill.icon) && resolveIcon(skill.icon).type !== "dot";
@@ -20,15 +20,15 @@ function buildLines(domains) {
         {
             delay: 340,
             tokens: [
-                { cls: "prompt", t: "shryansh@portfolio" },
-                { t: ":~$ ./load-skillset --verbose" },
+                {cls: "prompt", t: "shryansh@portfolio"},
+                {t: ":~$ ./load-skillset --verbose"},
             ],
         },
         {
             delay: 300,
             tokens: [
-                { cls: "arrow", t: ">" },
-                { t: " initializing tech stack ..." },
+                {cls: "arrow", t: ">"},
+                {t: " initializing tech stack ..."},
             ],
         },
     ];
@@ -42,9 +42,9 @@ function buildLines(domains) {
         lines.push({
             delay: 150,
             tokens: [
-                { cls: "ok", t: "✓" },
-                { t: ` ${d.short.padEnd(13, " ")}` },
-                { cls: "dim", t: `[ ${names.join(" · ")} ]` },
+                {cls: "ok", t: "✓"},
+                {t: ` ${d.short.padEnd(13, " ")}`},
+                {cls: "dim", t: `[ ${names.join(" · ")} ]`},
             ],
         });
     });
@@ -52,7 +52,7 @@ function buildLines(domains) {
     lines.push({
         delay: 250,
         tokens: [
-            { cls: "arrow", t: ">" },
+            {cls: "arrow", t: ">"},
             {
                 t: ` ${totalTech} technologies · ${domains.length} domains mounted`,
             },
@@ -61,17 +61,17 @@ function buildLines(domains) {
     lines.push({
         delay: 430,
         tokens: [
-            { cls: "arrow", t: ">" },
-            { t: " entering orbit " },
-            { cls: "ok", t: "▓▓▓▓▓▓▓▓▓▓" },
-            { t: " 100%" },
+            {cls: "arrow", t: ">"},
+            {t: " entering orbit "},
+            {cls: "ok", t: "▓▓▓▓▓▓▓▓▓▓"},
+            {t: " 100%"},
         ],
     });
 
     return lines;
 }
 
-export default function BootIntro({ domains, onFinish }) {
+export default function BootIntro({domains, onFinish}) {
     const linesRef = useRef(buildLines(domains));
     const timersRef = useRef([]);
     const [visibleCount, setVisibleCount] = useState(0);
@@ -130,9 +130,9 @@ export default function BootIntro({ domains, onFinish }) {
         <div className={`orbit-boot orbit-mono${done ? " is-done" : ""}`}>
             <div className="orbit-boot-win">
                 <div className="orbit-boot-bar">
-                    <i className="r" />
-                    <i className="y" />
-                    <i className="g" />
+                    <i className="r"/>
+                    <i className="y"/>
+                    <i className="g"/>
                     <span>shryansh@portfolio: ~/skills</span>
                 </div>
                 <div className="orbit-boot-body">
@@ -146,7 +146,7 @@ export default function BootIntro({ domains, onFinish }) {
                         </div>
                     ))}
                     {!done && visibleCount >= lines.length && (
-                        <span className="orbit-boot-cursor" />
+                        <span className="orbit-boot-cursor"/>
                     )}
                 </div>
             </div>

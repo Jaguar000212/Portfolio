@@ -13,7 +13,7 @@ const Footer = () => {
                         Shryansh's Portfolio
                     </Link>
 
-                    <SocialMedia className="mb-6" />
+                    <SocialMedia className="mb-6"/>
 
                     <div className="flex flex-wrap justify-center gap-8 mb-6 font-body">
                         <Link

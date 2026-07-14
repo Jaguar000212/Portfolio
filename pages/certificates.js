@@ -1,9 +1,9 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import {AnimatePresence, motion} from "framer-motion";
+import {useEffect, useState} from "react";
 import CertificateTile from "../components/CertificateTile";
 import SpecializationTile from "../components/SpecializationTile";
 import Seo from "../components/Seo";
-import { fadeIn } from "../constants/animations";
+import {fadeIn} from "../constants/animations";
 
 export default function Certificates() {
     const [certificates, setCertificates] = useState([]);
@@ -35,8 +35,8 @@ export default function Certificates() {
     }, []);
 
     const tabs = [
-        { id: "courses", label: "Courses" },
-        { id: "specializations", label: "Specializations" },
+        {id: "courses", label: "Courses"},
+        {id: "specializations", label: "Specializations"},
     ];
 
     return (
@@ -50,9 +50,9 @@ export default function Certificates() {
             <section className="section-padding">
                 <div className="container-custom">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.5}}
                         className="mb-12"
                     >
                         <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">
@@ -98,8 +98,8 @@ export default function Certificates() {
                                         {certificates.map((certificate, index) => (
                                             <motion.div
                                                 key={certificate.id}
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
+                                                initial={{opacity: 0, y: 20}}
+                                                animate={{opacity: 1, y: 0}}
                                                 transition={{
                                                     delay: index * 0.1,
                                                     duration: 0.5,

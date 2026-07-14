@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 
 // Create Theme Context
 const ThemeContext = createContext();
@@ -7,7 +7,7 @@ const ThemeContext = createContext();
  * Theme Provider Component
  * Manages theme state and provides context to the entire application
  */
-export const ThemeProvider = ({ children }) => {
+export const ThemeProvider = ({children}) => {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -32,7 +32,7 @@ export const ThemeProvider = ({ children }) => {
     };
 
     return (
-        <ThemeContext.Provider value={{ isDarkMode, toggleTheme, isLoaded }}>
+        <ThemeContext.Provider value={{isDarkMode, toggleTheme, isLoaded}}>
             {children}
         </ThemeContext.Provider>
     );

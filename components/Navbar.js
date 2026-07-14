@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import ThemeToggle from "./ThemeToggle";
-import { AnimatePresence, motion } from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,11 +14,11 @@ const Navbar = () => {
     }, [router.pathname]);
 
     const navItems = [
-        { name: "Home", path: "/" },
-        { name: "Projects", path: "/projects" },
-        { name: "Skills", path: "/skills" },
-        { name: "Education", path: "/education" },
-        { name: "Certificates", path: "/certificates" },
+        {name: "Home", path: "/"},
+        {name: "Projects", path: "/projects"},
+        {name: "Skills", path: "/skills"},
+        {name: "Education", path: "/education"},
+        {name: "Certificates", path: "/certificates"},
     ];
 
     return (
@@ -31,7 +31,8 @@ const Navbar = () => {
                         className="flex items-center hover:scale-105 transition-transform duration-300 group"
                     >
                         <span className="text-4xl text-gray-500">&lt;</span>
-                        <span className="text-2xl signature-text text-primary group-hover:text-secondary transition-colors duration-300">
+                        <span
+                            className="text-2xl signature-text text-primary group-hover:text-secondary transition-colors duration-300">
                             Jaguar000212
                         </span>
                         <span className="text-4xl text-gray-500">/&gt;</span>
@@ -55,12 +56,12 @@ const Navbar = () => {
                                 </li>
                             ))}
                         </ul>
-                        <ThemeToggle />
+                        <ThemeToggle/>
                     </div>
 
                     {/* Mobile menu button */}
                     <div className="md:hidden flex items-center">
-                        <ThemeToggle />
+                        <ThemeToggle/>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="p-2 ml-4 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
@@ -88,9 +89,9 @@ const Navbar = () => {
                 <AnimatePresence>
                     {isOpen && (
                         <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
+                            initial={{opacity: 0, y: -10}}
+                            animate={{opacity: 1, y: 0}}
+                            exit={{opacity: 0, y: -10}}
                             className="md:hidden py-4"
                         >
                             <ul className="flex flex-col space-y-4">

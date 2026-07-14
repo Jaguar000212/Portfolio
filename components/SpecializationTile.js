@@ -1,12 +1,12 @@
-import { AnimatePresence, motion } from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
-import { useMouseMove } from "../hooks/useMouseMove";
-import { cardHoverShadow, cardHoverTransition } from "../constants/animations";
+import {useState} from "react";
+import {useMouseMove} from "../hooks/useMouseMove";
+import {cardHoverShadow, cardHoverTransition} from "../constants/animations";
 import ArrowLinkIcon from "./ArrowLinkIcon";
 
-const SpecializationTile = ({ specialization, certificates }) => {
-    const { elementRef, isHovered, mouseHandlers } = useMouseMove();
+const SpecializationTile = ({specialization, certificates}) => {
+    const {elementRef, isHovered, mouseHandlers} = useMouseMove();
     const [showCourses, setShowCourses] = useState(false);
 
     const bundledCourses = certificates.filter((certificate) =>
@@ -23,7 +23,7 @@ const SpecializationTile = ({ specialization, certificates }) => {
                 y: -5,
                 boxShadow: cardHoverShadow,
             }}
-            initial={{ boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)" }}
+            initial={{boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)"}}
             transition={cardHoverTransition}
             onHoverStart={mouseHandlers.onMouseEnter}
             onHoverEnd={mouseHandlers.onMouseLeave}
@@ -37,7 +37,7 @@ const SpecializationTile = ({ specialization, certificates }) => {
                     }
                     alt={specialization.name}
                     fill
-                    style={{ objectFit: "contain" }}
+                    style={{objectFit: "contain"}}
                     className="bg-white"
                 />
             </div>
@@ -69,17 +69,17 @@ const SpecializationTile = ({ specialization, certificates }) => {
                     {showCourses
                         ? "Hide courses"
                         : `Show ${bundledCourses.length} course${
-                              bundledCourses.length === 1 ? "" : "s"
-                          }`}
+                            bundledCourses.length === 1 ? "" : "s"
+                        }`}
                 </button>
 
                 <AnimatePresence initial={false}>
                     {showCourses && (
                         <motion.ul
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            initial={{height: 0, opacity: 0}}
+                            animate={{height: "auto", opacity: 1}}
+                            exit={{height: 0, opacity: 0}}
+                            transition={{duration: 0.2, ease: "easeOut"}}
                             className="mb-4 overflow-hidden space-y-1"
                         >
                             {bundledCourses.map((course) => (
@@ -101,7 +101,7 @@ const SpecializationTile = ({ specialization, certificates }) => {
                     className="inline-flex mt-auto items-center text-primary hover:underline text-sm font-body"
                 >
                     <span>View Certificate</span>
-                    <ArrowLinkIcon />
+                    <ArrowLinkIcon/>
                 </a>
             </div>
         </motion.div>

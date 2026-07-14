@@ -1,5 +1,9 @@
 {
-  "core": { "initial": "J", "name": "JAGUAR", "role": "Full-Stack Eng" },
+  "core": {
+    "initial": "J",
+    "name": "JAGUAR",
+    "role": "Full-Stack Eng"
+  },
   "intro": {
     "eyebrow": "My toolkit",
     "title": "A full-stack toolkit, mapped as a system.",
@@ -16,31 +20,61 @@
         {
           "label": "Native Android",
           "skills": [
-            { "name": "Jetpack Compose", "icon": "jetpackcompose" },
-            { "name": "Material Design 3", "icon": "materialdesign" },
-            { "name": "XML" },
-            { "name": "Android SDK", "icon": "android" }
+            {
+              "name": "Jetpack Compose",
+              "icon": "jetpackcompose"
+            },
+            {
+              "name": "Material Design 3",
+              "icon": "materialdesign"
+            },
+            {
+              "name": "XML"
+            },
+            {
+              "name": "Android SDK",
+              "icon": "android"
+            }
           ]
         },
         {
           "label": "Cross-Platform",
-          "skills": [{ "name": "React Native", "icon": "react" }]
+          "skills": [
+            {
+              "name": "React Native",
+              "icon": "react"
+            }
+          ]
         },
         {
           "label": "Architecture & State",
           "skills": [
-            { "name": "MVVM" },
-            { "name": "MVI" },
-            { "name": "Kotlin Flows" }
+            {
+              "name": "MVVM"
+            },
+            {
+              "name": "MVI"
+            },
+            {
+              "name": "Kotlin Flows"
+            }
           ]
         },
         {
           "label": "Data & DI",
           "skills": [
-            { "name": "RoomDB" },
-            { "name": "Hilt" },
-            { "name": "Koin" },
-            { "name": "Retrofit" }
+            {
+              "name": "RoomDB"
+            },
+            {
+              "name": "Hilt"
+            },
+            {
+              "name": "Koin"
+            },
+            {
+              "name": "Retrofit"
+            }
           ]
         }
       ]
@@ -55,16 +89,31 @@
         {
           "label": "Frameworks",
           "skills": [
-            { "name": "Next.js", "icon": "nextdotjs" },
-            { "name": "React.js", "icon": "react" }
+            {
+              "name": "Next.js",
+              "icon": "nextdotjs"
+            },
+            {
+              "name": "React.js",
+              "icon": "react"
+            }
           ]
         },
         {
           "label": "Core & Libraries",
           "skills": [
-            { "name": "HTML", "icon": "html5" },
-            { "name": "CSS", "icon": "css3" },
-            { "name": "Bootstrap", "icon": "bootstrap" }
+            {
+              "name": "HTML",
+              "icon": "html5"
+            },
+            {
+              "name": "CSS",
+              "icon": "css3"
+            },
+            {
+              "name": "Bootstrap",
+              "icon": "bootstrap"
+            }
           ]
         }
       ]
@@ -79,25 +128,50 @@
         {
           "label": "Frameworks",
           "skills": [
-            { "name": "FastAPI", "icon": "fastapi" },
-            { "name": "Django", "icon": "django" },
-            { "name": "Node.js", "icon": "nodedotjs" },
-            { "name": "Flask", "icon": "flask" }
+            {
+              "name": "FastAPI",
+              "icon": "fastapi"
+            },
+            {
+              "name": "Django",
+              "icon": "django"
+            },
+            {
+              "name": "Node.js",
+              "icon": "nodedotjs"
+            },
+            {
+              "name": "Flask",
+              "icon": "flask"
+            }
           ]
         },
         {
           "label": "Async & Queues",
           "skills": [
-            { "name": "Celery", "icon": "celery" },
-            { "name": "Redis", "icon": "redis" },
-            { "name": "Asyncio" }
+            {
+              "name": "Celery",
+              "icon": "celery"
+            },
+            {
+              "name": "Redis",
+              "icon": "redis"
+            },
+            {
+              "name": "Asyncio"
+            }
           ]
         },
         {
           "label": "ORM & Migrations",
           "skills": [
-            { "name": "SQLAlchemy", "icon": "sqlalchemy" },
-            { "name": "Alembic" }
+            {
+              "name": "SQLAlchemy",
+              "icon": "sqlalchemy"
+            },
+            {
+              "name": "Alembic"
+            }
           ]
         }
       ]
@@ -112,22 +186,44 @@
         {
           "label": "Relational",
           "skills": [
-            { "name": "PostgreSQL", "icon": "postgresql" },
-            { "name": "MySQL", "icon": "mysql" },
-            { "name": "SQLite", "icon": "sqlite" }
+            {
+              "name": "PostgreSQL",
+              "icon": "postgresql"
+            },
+            {
+              "name": "MySQL",
+              "icon": "mysql"
+            },
+            {
+              "name": "SQLite",
+              "icon": "sqlite"
+            }
           ]
         },
         {
           "label": "NoSQL / BaaS",
           "skills": [
-            { "name": "Supabase", "icon": "supabase" },
-            { "name": "Firebase", "icon": "firebase" },
-            { "name": "MongoDB", "icon": "mongodb" }
+            {
+              "name": "Supabase",
+              "icon": "supabase"
+            },
+            {
+              "name": "Firebase",
+              "icon": "firebase"
+            },
+            {
+              "name": "MongoDB",
+              "icon": "mongodb"
+            }
           ]
         },
         {
           "label": "Vector Search",
-          "skills": [{ "name": "Pinecone" }]
+          "skills": [
+            {
+              "name": "Pinecone"
+            }
+          ]
         }
       ]
     },
@@ -141,9 +237,16 @@
         {
           "label": "Tools",
           "skills": [
-            { "name": "Playwright", "icon": "playwright" },
-            { "name": "BeautifulSoup" },
-            { "name": "HTTPX" }
+            {
+              "name": "Playwright",
+              "icon": "playwright"
+            },
+            {
+              "name": "BeautifulSoup"
+            },
+            {
+              "name": "HTTPX"
+            }
           ]
         }
       ]
@@ -158,27 +261,57 @@
         {
           "label": "Infrastructure",
           "skills": [
-            { "name": "Git", "icon": "git" },
-            { "name": "Linux", "icon": "linux" },
-            { "name": "Docker", "icon": "docker" },
-            { "name": "Kubernetes", "icon": "kubernetes" }
+            {
+              "name": "Git",
+              "icon": "git"
+            },
+            {
+              "name": "Linux",
+              "icon": "linux"
+            },
+            {
+              "name": "Docker",
+              "icon": "docker"
+            },
+            {
+              "name": "Kubernetes",
+              "icon": "kubernetes"
+            }
           ]
         },
         {
           "label": "High-Performance",
           "skills": [
-            { "name": "CUDA", "icon": "nvidia" },
-            { "name": "MPI" },
-            { "name": "Custom Compiler Toolchains (AST, TAC)" }
+            {
+              "name": "CUDA",
+              "icon": "nvidia"
+            },
+            {
+              "name": "MPI"
+            },
+            {
+              "name": "Custom Compiler Toolchains (AST, TAC)"
+            }
           ]
         },
         {
           "label": "Data Science",
           "skills": [
-            { "name": "XGBoost" },
-            { "name": "Scikit-learn", "icon": "scikitlearn" },
-            { "name": "Pandas", "icon": "pandas" },
-            { "name": "NumPy", "icon": "numpy" }
+            {
+              "name": "XGBoost"
+            },
+            {
+              "name": "Scikit-learn",
+              "icon": "scikitlearn"
+            },
+            {
+              "name": "Pandas",
+              "icon": "pandas"
+            },
+            {
+              "name": "NumPy",
+              "icon": "numpy"
+            }
           ]
         }
       ]
@@ -193,19 +326,42 @@
         {
           "label": "Core",
           "skills": [
-            { "name": "Kotlin", "icon": "kotlin" },
-            { "name": "Python", "icon": "python" }
+            {
+              "name": "Kotlin",
+              "icon": "kotlin"
+            },
+            {
+              "name": "Python",
+              "icon": "python"
+            }
           ]
         },
         {
           "label": "Secondary & Scripting",
           "skills": [
-            { "name": "Java", "icon": "openjdk" },
-            { "name": "C++", "icon": "cplusplus" },
-            { "name": "JavaScript", "icon": "javascript" },
-            { "name": "TypeScript", "icon": "typescript" },
-            { "name": "C", "icon": "c" },
-            { "name": "SQL" }
+            {
+              "name": "Java",
+              "icon": "openjdk"
+            },
+            {
+              "name": "C++",
+              "icon": "cplusplus"
+            },
+            {
+              "name": "JavaScript",
+              "icon": "javascript"
+            },
+            {
+              "name": "TypeScript",
+              "icon": "typescript"
+            },
+            {
+              "name": "C",
+              "icon": "c"
+            },
+            {
+              "name": "SQL"
+            }
           ]
         }
       ]

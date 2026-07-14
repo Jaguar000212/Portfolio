@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import Image from "next/image";
-import { useMouseMove } from "../hooks/useMouseMove";
-import { cardHoverShadow, cardHoverTransition } from "../constants/animations";
+import {useMouseMove} from "../hooks/useMouseMove";
+import {cardHoverShadow, cardHoverTransition} from "../constants/animations";
 
-const EducationCard = ({ education }) => {
-    const { elementRef, isHovered, mouseHandlers } = useMouseMove();
+const EducationCard = ({education}) => {
+    const {elementRef, isHovered, mouseHandlers} = useMouseMove();
 
     return (
         <motion.div
@@ -16,7 +16,7 @@ const EducationCard = ({ education }) => {
                 y: -5,
                 boxShadow: cardHoverShadow,
             }}
-            initial={{ boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)" }}
+            initial={{boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)"}}
             transition={cardHoverTransition}
             onHoverStart={mouseHandlers.onMouseEnter}
             onHoverEnd={mouseHandlers.onMouseLeave}
@@ -25,7 +25,8 @@ const EducationCard = ({ education }) => {
             <div className="p-6 z-0">
                 <div className="flex items-start">
                     {/* Institution Logo */}
-                    <div className="relative h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex-shrink-0 mr-4 overflow-hidden">
+                    <div
+                        className="relative h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex-shrink-0 mr-4 overflow-hidden">
                         <Image
                             src={
                                 education.logo ||
@@ -33,7 +34,7 @@ const EducationCard = ({ education }) => {
                             }
                             alt={education.institution}
                             fill
-                            style={{ objectFit: "contain" }}
+                            style={{objectFit: "contain"}}
                         />
                     </div>
 

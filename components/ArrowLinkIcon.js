@@ -1,6 +1,6 @@
 // Shared "external link" arrow, used by every card's outbound link
 // (ProjectCard, GitHubProjectCard, CertificateTile, SpecializationTile).
-const ArrowLinkIcon = ({ className = "w-4 h-4 ml-1" }) => (
+const ArrowLinkIcon = ({className = "w-4 h-4 ml-1"}) => (
     <svg className={className} viewBox="0 0 20 20" fill="currentColor">
         <path
             fillRule="evenodd"

@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import {Head, Html, Main, NextScript} from "next/document";
 
 // Applies the dark class before hydration so there's no flash of the
 // wrong theme on load. Runs synchronously as the very first thing parsed
@@ -19,12 +19,12 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head>
-                <link rel="icon" href="/favicon.ico" />
-                <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+                <link rel="icon" href="/favicon.ico"/>
+                <script dangerouslySetInnerHTML={{__html: themeInitScript}}/>
             </Head>
             <body>
-                <Main />
-                <NextScript />
+            <Main/>
+            <NextScript/>
             </body>
         </Html>
     );

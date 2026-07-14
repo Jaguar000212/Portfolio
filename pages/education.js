@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import {motion} from "framer-motion";
+import {useEffect, useState} from "react";
 import EducationCard from "../components/EducationCard";
 import Seo from "../components/Seo";
 
@@ -34,9 +34,9 @@ export default function Education() {
             <section className="section-padding">
                 <div className="container-custom">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.5}}
                         className="mb-12"
                     >
                         <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">
@@ -52,14 +52,14 @@ export default function Education() {
                         {education.map((edu, index) => (
                             <motion.div
                                 key={edu.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                initial={{opacity: 0, y: 20}}
+                                animate={{opacity: 1, y: 0}}
                                 transition={{
                                     delay: index * 0.1,
                                     duration: 0.5,
                                 }}
                             >
-                                <EducationCard education={edu} />
+                                <EducationCard education={edu}/>
                             </motion.div>
                         ))}
                     </div>

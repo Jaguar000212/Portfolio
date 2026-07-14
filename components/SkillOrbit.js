@@ -1,23 +1,23 @@
-import { useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { resolveIcon } from "../constants/skillIcons";
+import {useMemo, useState} from "react";
+import {AnimatePresence, motion} from "framer-motion";
+import {resolveIcon} from "../constants/skillIcons";
 
 const BOX = 500;
 const CENTER = BOX / 2;
 const RADIUS = 190;
 
-function Icon({ icon, className }) {
+function Icon({icon, className}) {
     const resolved = resolveIcon(icon);
     if (resolved.type === "svg") {
         return (
             <svg viewBox="0 0 24 24" className={className}>
-                <path d={resolved.value} />
+                <path d={resolved.value}/>
             </svg>
         );
     }
     if (resolved.type === "img") {
         // eslint-disable-next-line @next/next/no-img-element
-        return <img src={resolved.value} alt="" className={className} />;
+        return <img src={resolved.value} alt="" className={className}/>;
     }
     return null;
 }
@@ -33,8 +33,8 @@ function countTechs(domain) {
     );
 }
 
-export default function SkillOrbit({ data, onReplayBoot }) {
-    const { core, intro, domains } = data;
+export default function SkillOrbit({data, onReplayBoot}) {
+    const {core, intro, domains} = data;
     const [selectedKey, setSelectedKey] = useState(null);
     const [hovered, setHovered] = useState(false);
 
@@ -101,12 +101,12 @@ export default function SkillOrbit({ data, onReplayBoot }) {
                         onMouseEnter={() => setHovered(true)}
                         onMouseLeave={() => setHovered(false)}
                     >
-                        <div className="orbit-glow" />
+                        <div className="orbit-glow"/>
                         <div className="orbit-box">
-                            <div className="orbit-ring r1" />
-                            <div className="orbit-ring r2" />
+                            <div className="orbit-ring r1"/>
+                            <div className="orbit-ring r2"/>
 
-                            <div className="orbit-core-corona" />
+                            <div className="orbit-core-corona"/>
                             <button
                                 type="button"
                                 className="orbit-core"
@@ -126,7 +126,7 @@ export default function SkillOrbit({ data, onReplayBoot }) {
 
                             <div
                                 className="orbit-revolve"
-                                style={{ animationPlayState: playState }}
+                                style={{animationPlayState: playState}}
                             >
                                 <svg
                                     className="orbit-beams"
@@ -164,7 +164,7 @@ export default function SkillOrbit({ data, onReplayBoot }) {
                                                 className="orbit-planet-counter"
                                                 style={{
                                                     animationPlayState:
-                                                        playState,
+                                                    playState,
                                                 }}
                                             >
                                                 <button
@@ -201,10 +201,10 @@ export default function SkillOrbit({ data, onReplayBoot }) {
                             {selectedDomain ? (
                                 <motion.div
                                     key={selectedDomain.key}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -6 }}
-                                    transition={{ duration: 0.3 }}
+                                    initial={{opacity: 0, y: 10}}
+                                    animate={{opacity: 1, y: 0}}
+                                    exit={{opacity: 0, y: -6}}
+                                    transition={{duration: 0.3}}
                                 >
                                     <div className="orbit-d-eyebrow is-domain orbit-mono">
                                         {selectedDomain.tag}
@@ -248,7 +248,7 @@ export default function SkillOrbit({ data, onReplayBoot }) {
                                                                         />
                                                                     </span>
                                                                 ) : (
-                                                                    <span className="pdot" />
+                                                                    <span className="pdot"/>
                                                                 )}
                                                                 {s.name}
                                                             </span>
@@ -262,10 +262,10 @@ export default function SkillOrbit({ data, onReplayBoot }) {
                             ) : (
                                 <motion.div
                                     key="overview"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -6 }}
-                                    transition={{ duration: 0.3 }}
+                                    initial={{opacity: 0, y: 10}}
+                                    animate={{opacity: 1, y: 0}}
+                                    exit={{opacity: 0, y: -6}}
+                                    transition={{duration: 0.3}}
                                 >
                                     <div className="orbit-d-eyebrow orbit-mono">
                                         {intro.eyebrow}
@@ -304,12 +304,12 @@ export default function SkillOrbit({ data, onReplayBoot }) {
                                                 title={s.name}
                                                 key={s.name}
                                             >
-                                                <Icon icon={s.icon} />
+                                                <Icon icon={s.icon}/>
                                             </span>
                                         ))}
                                     </div>
                                     <div className="orbit-tap-pill orbit-mono">
-                                        <span className="dot" />
+                                        <span className="dot"/>
                                         Tap a planet to explore
                                     </div>
                                 </motion.div>
