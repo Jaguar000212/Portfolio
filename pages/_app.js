@@ -3,6 +3,7 @@ import "../styles/animations.css";
 import "../styles/fonts.css";
 import "../styles/card-effects.css";
 import "../styles/skills-orbit.css";
+import "../styles/github-stats.css";
 import {jetbrainsMono, poppins, spaceGrotesk} from "../lib/fonts";
 import {MotionConfig} from "framer-motion";
 import Navbar from "../components/Navbar";

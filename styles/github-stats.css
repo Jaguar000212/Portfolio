@@ -1,0 +1,49 @@
+/* Terminal-window chrome for the GitHub stats card — visually paired with
+   BootIntro's boot sequence via the shared --terminal-* tokens, but its own
+   ruleset since it's an always-visible page section, not a modal overlay. */
+
+.gh-terminal {
+    background: var(--terminal-bg);
+    border: 1px solid var(--terminal-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 25px 60px -25px rgba(0, 0, 0, 0.65);
+}
+
+.gh-terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.65rem 0.85rem;
+    background: var(--terminal-bar-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gh-terminal-bar i {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 999px;
+    display: inline-block;
+}
+
+.gh-terminal-bar i.r {
+    background: var(--terminal-red);
+}
+
+.gh-terminal-bar i.y {
+    background: var(--terminal-yellow);
+}
+
+.gh-terminal-bar i.g {
+    background: var(--terminal-green);
+}
+
+.gh-terminal-bar span {
+    margin-left: 0.6rem;
+    color: var(--terminal-text-dim);
+    font-size: 0.74rem;
+}
+
+.gh-terminal-body {
+    padding: 1.5rem;
+}

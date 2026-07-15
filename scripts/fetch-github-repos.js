@@ -1,4 +1,4 @@
-// Script to fetch pinned GitHub repositories and flatten topics array
+// Script to fetch pinned GitHub repositories and profile stats
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
@@ -16,6 +16,13 @@ if (!GITHUB_USERNAME || !GITHUB_TOKEN) {
 }
 
 console.log(`Fetching GitHub data for user: ${GITHUB_USERNAME}`);
+
+// Calendar-year window (Jan 1 - Dec 31), matching GitHub's own profile
+// contribution graph — contributionsCollection defaults to a rolling
+// past-365-days window unless from/to are given explicitly.
+const CALENDAR_YEAR = new Date().getFullYear();
+const YEAR_START = `${CALENDAR_YEAR}-01-01T00:00:00Z`;
+const YEAR_END = `${CALENDAR_YEAR}-12-31T23:59:59Z`;
 
 async function fetchGitHubData() {
     return new Promise((resolve, reject) => {
@@ -46,18 +53,42 @@ async function fetchGitHubData() {
                             }
                         }
                     }
-                    contributionsCollection {
+                    followers {
+                        totalCount
+                    }
+                    pullRequests {
+                        totalCount
+                    }
+                    issues {
+                        totalCount
+                    }
+                    repositoriesContributedTo(first: 1, includeUserRepositories: false, contributionTypes: [COMMIT, PULL_REQUEST, ISSUE, REPOSITORY]) {
+                        totalCount
+                    }
+                    contributionsCollection(from: "${YEAR_START}", to: "${YEAR_END}") {
+                        totalPullRequestReviewContributions
                         contributionCalendar {
                             totalContributions
+                            weeks {
+                                contributionDays {
+                                    contributionCount
+                                    date
+                                }
+                            }
                         }
                     }
                     repositories(first: 100, ownerAffiliations: [OWNER], isFork: false, privacy: PUBLIC) {
                         totalCount
                         nodes {
                             stargazerCount
-                            primaryLanguage {
-                                name
-                                color
+                            languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+                                edges {
+                                    size
+                                    node {
+                                        name
+                                        color
+                                    }
+                                }
                             }
                         }
                     }
@@ -129,28 +160,101 @@ async function fetchGitHubData() {
                     const allRepos = user.repositories.nodes;
                     const totalStars = allRepos.reduce((sum, r) => sum + r.stargazerCount, 0);
 
-                    const languageCounts = new Map();
+                    // Byte-weighted language breakdown (bytes of code per language,
+                    // summed across every repo's full language list) instead of just
+                    // counting how many repos have each language as "primary" — a
+                    // large repo shouldn't count the same as a one-file script.
+                    const languageBytes = new Map();
                     allRepos.forEach(r => {
-                        if (!r.primaryLanguage) return;
-                        const key = r.primaryLanguage.name;
-                        const existing = languageCounts.get(key);
-                        if (existing) {
-                            existing.count += 1;
-                        } else {
-                            languageCounts.set(key, {
-                                name: key, color: r.primaryLanguage.color, count: 1,
-                            });
-                        }
+                        (r.languages?.edges || []).forEach(edge => {
+                            const key = edge.node.name;
+                            const existing = languageBytes.get(key);
+                            if (existing) {
+                                existing.bytes += edge.size;
+                            } else {
+                                languageBytes.set(key, {
+                                    name: key, color: edge.node.color, bytes: edge.size,
+                                });
+                            }
+                        });
                     });
-                    const topLanguages = [...languageCounts.values()]
-                        .sort((a, b) => b.count - a.count)
-                        .slice(0, 4);
+                    const totalLanguageBytes = [...languageBytes.values()]
+                        .reduce((sum, l) => sum + l.bytes, 0);
+                    const toPercent = bytes => totalLanguageBytes > 0
+                        ? Math.round((bytes / totalLanguageBytes) * 1000) / 10
+                        : 0;
+
+                    const sortedLanguages = [...languageBytes.values()]
+                        .sort((a, b) => b.bytes - a.bytes);
+                    const topLanguages = sortedLanguages.slice(0, 5).map(l => ({
+                        name: l.name,
+                        color: l.color,
+                        percent: toPercent(l.bytes),
+                    }));
+
+                    const othersBytes = sortedLanguages.slice(5)
+                        .reduce((sum, l) => sum + l.bytes, 0);
+                    if (othersBytes > 0) {
+                        topLanguages.push({
+                            name: 'Others',
+                            color: '#6b7280',
+                            percent: toPercent(othersBytes),
+                        });
+                    }
+
+                    const calendar = user.contributionsCollection.contributionCalendar;
+                    const contributionWeeks = calendar.weeks.map(week => ({
+                        days: week.contributionDays.map(d => ({
+                            date: d.date, count: d.contributionCount,
+                        })),
+                    }));
+
+                    // Weeks/days come chronologically ascending, so the streak
+                    // scan just walks the flattened list from the end (today)
+                    // backwards for "current", and forwards for "longest".
+                    const allDays = contributionWeeks.flatMap(w => w.days);
+                    let currentStreak = 0;
+                    for (let i = allDays.length - 1; i >= 0; i--) {
+                        if (allDays[i].count > 0) currentStreak++;
+                        else break;
+                    }
+                    let longestStreak = 0;
+                    let longestStreakStart = null;
+                    let longestStreakEnd = null;
+                    let running = 0;
+                    let runStart = null;
+                    for (const day of allDays) {
+                        if (day.count > 0) {
+                            if (running === 0) runStart = day.date;
+                            running++;
+                            if (running > longestStreak) {
+                                longestStreak = running;
+                                longestStreakStart = runStart;
+                                longestStreakEnd = day.date;
+                            }
+                        } else {
+                            running = 0;
+                        }
+                    }
 
                     const stats = {
                         totalStars,
                         totalPublicRepos: user.repositories.totalCount,
-                        totalContributions: user.contributionsCollection.contributionCalendar.totalContributions,
+                        totalContributions: calendar.totalContributions,
+                        followers: user.followers.totalCount,
+                        totalPullRequests: user.pullRequests.totalCount,
+                        totalIssues: user.issues.totalCount,
+                        totalReviews: user.contributionsCollection.totalPullRequestReviewContributions,
+                        repositoriesContributedTo: user.repositoriesContributedTo.totalCount,
+                        currentStreak,
+                        longestStreak,
+                        longestStreakStart,
+                        longestStreakEnd,
+                        calendarYear: CALENDAR_YEAR,
+                        measurementStart: allDays[0]?.date || null,
+                        measurementEnd: allDays[allDays.length - 1]?.date || null,
                         topLanguages,
+                        contributionWeeks,
                     };
 
                     resolve({repositories: mappedRepos, stats});
@@ -169,11 +273,112 @@ async function fetchGitHubData() {
     });
 }
 
+// GitHub's search API can count every commit authored by a user across all
+// (searchable) repos, all-time — not just the past-year contribution
+// calendar the GraphQL API exposes. Resolves null (rather than rejecting)
+// on any failure so a rate-limited/unavailable search endpoint doesn't
+// take down the rest of the stats fetch.
+async function fetchTotalCommits() {
+    return new Promise((resolve) => {
+        const options = {
+            hostname: 'api.github.com',
+            path: `/search/commits?q=author:${encodeURIComponent(GITHUB_USERNAME)}`,
+            method: 'GET',
+            headers: {
+                'Accept': 'application/vnd.github+json',
+                'User-Agent': 'Node.js GitHub Fetcher',
+                'Authorization': 'Bearer ' + GITHUB_TOKEN,
+            },
+        };
+
+        const req = https.request(options, (res) => {
+            let body = '';
+            res.on('data', chunk => body += chunk);
+            res.on('end', () => {
+                try {
+                    if (res.statusCode !== 200) {
+                        console.warn(`Commit search API returned ${res.statusCode}, skipping total commit count.`);
+                        return resolve(null);
+                    }
+                    const parsed = JSON.parse(body);
+                    resolve(typeof parsed.total_count === 'number' ? parsed.total_count : null);
+                } catch (error) {
+                    console.warn('Failed to parse commit search response:', error.message);
+                    resolve(null);
+                }
+            });
+        });
+
+        req.on('error', (error) => {
+            console.warn('Commit search API request failed:', error.message);
+            resolve(null);
+        });
+
+        req.end();
+    });
+}
+
+// A simplified, clearly-approximate take on github-readme-stats' "rank"
+// card: each metric is mapped to a 0-1 percentile via an exponential CDF
+// (0 at zero activity, 0.5 at its baseline, approaching 1 well beyond it),
+// then combined into a weighted overall score. The baselines/weights below
+// are reasonable heuristic guesses, not a reproduction of that project's
+// actual (undisclosed) tuning.
+const RANK_BASELINES = {commits: 250, prs: 50, issues: 25, reviews: 2, stars: 50, followers: 10};
+const RANK_WEIGHTS = {commits: 2, prs: 3, issues: 1, reviews: 1, stars: 4, followers: 1};
+
+function percentileFor(value, baseline) {
+    return 1 - Math.pow(2, -value / baseline);
+}
+
+function computeRank({commits, prs, issues, reviews, stars, followers}) {
+    const scores = {
+        commits: percentileFor(commits, RANK_BASELINES.commits),
+        prs: percentileFor(prs, RANK_BASELINES.prs),
+        issues: percentileFor(issues, RANK_BASELINES.issues),
+        reviews: percentileFor(reviews, RANK_BASELINES.reviews),
+        stars: percentileFor(stars, RANK_BASELINES.stars),
+        followers: percentileFor(followers, RANK_BASELINES.followers),
+    };
+
+    const totalWeight = Object.values(RANK_WEIGHTS).reduce((a, b) => a + b, 0);
+    const weightedSum = Object.keys(RANK_WEIGHTS)
+        .reduce((sum, key) => sum + scores[key] * RANK_WEIGHTS[key], 0);
+    const percentile = Math.round((weightedSum / totalWeight) * 1000) / 10;
+
+    let grade;
+    if (percentile >= 95) grade = 'S';
+    else if (percentile >= 87) grade = 'A+';
+    else if (percentile >= 75) grade = 'A';
+    else if (percentile >= 60) grade = 'A-';
+    else if (percentile >= 45) grade = 'B+';
+    else if (percentile >= 30) grade = 'B';
+    else grade = 'C';
+
+    return {percentile, grade};
+}
+
 async function main() {
     console.log('Trying to fetch GitHub data first...');
 
     try {
-        const {repositories, stats} = await fetchGitHubData();
+        const [{repositories, stats}, totalCommits] = await Promise.all([
+            fetchGitHubData(),
+            fetchTotalCommits(),
+        ]);
+
+        stats.totalCommits = totalCommits;
+        if (totalCommits !== null) {
+            stats.rank = computeRank({
+                commits: totalCommits,
+                prs: stats.totalPullRequests,
+                issues: stats.totalIssues,
+                reviews: stats.totalReviews,
+                stars: stats.totalStars,
+                followers: stats.followers,
+            });
+        }
+
         saveGitHubData(repositories, stats);
     } catch (error) {
         console.error(

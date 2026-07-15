@@ -4,6 +4,7 @@ import {useMouseMove} from "../hooks/useMouseMove";
 import {cardHoverShadow, cardHoverTransition} from "../constants/animations";
 import DisplayLottie from "../components/DisplayLottie";
 import GitHubStats from "../components/GitHubStats";
+import SectionHeading from "../components/SectionHeading";
 import Seo from "../components/Seo";
 
 export default function Home() {
@@ -106,17 +107,10 @@ export default function Home() {
                         animate={{opacity: 1, y: 0}}
                         transition={{delay: 0.8, duration: 0.6}}
                     >
-                        <div className="text-center mb-12">
-                            <h2 className="text-2xl md:text-4xl font-bold mb-4 font-heading inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                                What I Do
-                            </h2>
-                            <div
-                                className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
-                            <p className="text-center text-lg mt-6 max-w-3xl mx-auto font-medium">
-                                CRAZY SOFTWARE DEVELOPER WHO WANTS TO EXPLORE
-                                EVERY TECH STACK
-                            </p>
-                        </div>
+                        <SectionHeading
+                            title="What I Do"
+                            subtitle="CRAZY SOFTWARE DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK"
+                        />
 
                         <div className="grid md:grid-cols-3 gap-8">
                             <motion.div
@@ -304,6 +298,8 @@ export default function Home() {
                             </motion.div>
                         </div>
 
+                        <GitHubStats />
+
                         <div className="mt-16 max-w-3xl mx-auto px-4">
                             <div
                                 className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
@@ -327,8 +323,6 @@ export default function Home() {
                                 </p>
                             </div>
                         </div>
-
-                        <GitHubStats />
                     </motion.div>
                 </div>
             </section>

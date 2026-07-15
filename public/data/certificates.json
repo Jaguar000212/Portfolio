@@ -309,6 +309,18 @@
     },
     {
       "id": 25,
+      "name": "AWS - Cloud Foundations",
+      "issuer": "AWS Academy",
+      "date": "July 12, 2026",
+      "image": "/images/certificate-logos/aws.png",
+      "link": "https://www.credly.com/badges/91d69cd6-5d04-4c13-8da2-0f2a93afa9ef/public_url",
+      "technologies": [
+        "AWS",
+        "Cloud Computing"
+      ]
+    },
+    {
+      "id": 26,
       "name": "Mobile Development and JavaScript",
       "issuer": "Meta",
       "date": "July 13, 2026",

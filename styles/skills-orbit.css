@@ -698,8 +698,8 @@
 
 .orbit-boot-win {
     width: min(640px, 92vw);
-    background: #0a0d16;
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: var(--terminal-bg);
+    border: 1px solid var(--terminal-border);
     border-radius: 12px;
     box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.85);
     overflow: hidden;
@@ -716,7 +716,7 @@
     align-items: center;
     gap: 0.45rem;
     padding: 0.65rem 0.85rem;
-    background: #11141f;
+    background: var(--terminal-bar-bg);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -728,20 +728,20 @@
 }
 
 .orbit-boot-bar i.r {
-    background: #ff5f56;
+    background: var(--terminal-red);
 }
 
 .orbit-boot-bar i.y {
-    background: #ffbd2e;
+    background: var(--terminal-yellow);
 }
 
 .orbit-boot-bar i.g {
-    background: #27c93f;
+    background: var(--terminal-green);
 }
 
 .orbit-boot-bar span {
     margin-left: 0.6rem;
-    color: rgba(255, 255, 255, 0.42);
+    color: var(--terminal-text-dim);
     font-size: 0.74rem;
 }
 
@@ -758,26 +758,26 @@
 }
 
 .orbit-boot-body .prompt {
-    color: #7fb0ff;
+    color: var(--terminal-accent);
 }
 
 .orbit-boot-body .ok {
-    color: #ff5ca8;
+    color: var(--terminal-pink);
 }
 
 .orbit-boot-body .dim {
-    color: rgba(255, 255, 255, 0.42);
+    color: var(--terminal-text-dim);
 }
 
 .orbit-boot-body .arrow {
-    color: #7fb0ff;
+    color: var(--terminal-accent);
 }
 
 .orbit-boot-cursor {
     display: inline-block;
     width: 0.55rem;
     height: 1rem;
-    background: #ff5ca8;
+    background: var(--terminal-pink);
     vertical-align: -2px;
     animation: orbit-blink 1s steps(1) infinite;
 }
