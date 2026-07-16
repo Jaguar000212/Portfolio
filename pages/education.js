@@ -2,6 +2,7 @@ import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
 import EducationCard from "../components/EducationCard";
 import Seo from "../components/Seo";
+import SectionHeading from "../components/SectionHeading";
 
 export default function Education() {
     const [education, setEducation] = useState([]);
@@ -39,13 +40,11 @@ export default function Education() {
                         transition={{duration: 0.5}}
                         className="mb-12"
                     >
-                        <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">
-                            My Education
-                        </h1>
-                        <p className="font-body text-gray-600 dark:text-gray-400">
-                            Academic background and specialized training in
-                            mobile app development
-                        </p>
+                        <SectionHeading
+                            title="My Education"
+                            subtitle="Academic background and specialized training in
+                            mobile app development "
+                        />
                     </motion.div>
 
                     <div className="space-y-6">

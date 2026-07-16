@@ -2,8 +2,8 @@ import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
 import ProjectCard from "../components/ProjectCard";
 import GitHubProjectCard from "../components/GitHubProjectCard";
-import DisplayLottie from "../components/DisplayLottie";
 import Seo from "../components/Seo";
+import SectionHeading from "../components/SectionHeading";
 
 export default function Projects() {
     const [projects, setProjects] = useState([]);
@@ -46,40 +46,23 @@ export default function Projects() {
                 path="/projects"
             />
 
-            <section className="section-padding lg:pt-0">
+            <section className="section-padding">
                 <div className="container-custom">
-                    <div className="grid md:grid-cols-2 md:gap-12 items-center">
-                        <motion.div
-                            className={
-                                "md:justify-self-start justify-self-center"
-                            }
-                            initial={{opacity: 0, y: 20}}
-                            animate={{opacity: 1, y: 0}}
-                            transition={{duration: 0.5}}
-                        >
-                            <h1 className="text-3xl md:text-4xl font-bold mb-2 font-heading">
-                                My Projects
-                            </h1>
-                            <p className="text-gray-600 dark:text-gray-400 mb-8 font-body">
-                                From modern Android apps using Jetpack Compose
-                                to Python-powered utilities, these projects
-                                reflect both my core strengths and my
-                                curiosity-driven learning journey as a
-                                developer.
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            className="order-1 md:order-2 md:w-1/2 w-2/3 md:justify-self-end justify-self-center"
-                            initial={{opacity: 0, scale: 0.8}}
-                            animate={{opacity: 1, scale: 1}}
-                            transition={{duration: 0.8}}
-                        >
-                            {
-                                <DisplayLottie animationPath="/animations/projectsLottie.json"/>
-                            }
-                        </motion.div>
-                    </div>
+                    <motion.div
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.5}}
+                        className="mb-12"
+                    >
+                        <SectionHeading
+                            title="My Projects"
+                            subtitle="From modern Android apps using Jetpack Compose
+                            to Python-powered utilities, these projects
+                            reflect both my core strengths and my
+                            curiosity-driven learning journey as a
+                            developer."
+                        />
+                    </motion.div>
 
                     {/* Big Projects Section */}
                     <div className="mb-16">

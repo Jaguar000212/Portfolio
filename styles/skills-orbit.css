@@ -79,10 +79,21 @@
 .orbit-card-head {
     padding: 28px 36px 22px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
     gap: 16px;
     border-bottom: 1px solid var(--orbit-border);
+}
+
+@media (max-width: 480px) {
+    .orbit-card-head {
+        padding: 20px 18px 16px;
+    }
+
+    .orbit-card-head h2 {
+        font-size: 22px;
+    }
 }
 
 .orbit-eyebrow {
@@ -138,10 +149,47 @@
 @media (max-width: 900px) {
     .orbit-body {
         flex-direction: column;
+        min-height: 0;
     }
 }
 
 /* ---------- orbital stage ---------- */
+.orbit-shell {
+    /* Design-space size of .orbit-box is a fixed 500x500 (planet positions
+       are computed in JS as absolute px against that box), so shrinking it
+       for small screens is done with a single transform: scale() rather
+       than resizing the box itself — that keeps every child's pixel math
+       correct. .orbit-box-wrap reserves the actual (post-scale) layout
+       footprint so the scaled-down box doesn't overflow/get clipped by the
+       card, which is what happened when it was just an unscaled 500px box
+       with a cosmetic transform: scale() below 620px. */
+    --orbit-scale: 1;
+}
+
+@media (max-width: 900px) {
+    .orbit-shell {
+        --orbit-scale: 0.86;
+    }
+}
+
+@media (max-width: 700px) {
+    .orbit-shell {
+        --orbit-scale: 0.72;
+    }
+}
+
+@media (max-width: 480px) {
+    .orbit-shell {
+        --orbit-scale: 0.58;
+    }
+}
+
+@media (max-width: 360px) {
+    .orbit-shell {
+        --orbit-scale: 0.5;
+    }
+}
+
 .orbit-stage {
     position: relative;
     width: 560px;
@@ -157,6 +205,13 @@
 @media (max-width: 900px) {
     .orbit-stage {
         width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .orbit-stage {
+        padding: 8px;
     }
 }
 
@@ -164,8 +219,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 400px;
-    height: 400px;
+    width: calc(400px * var(--orbit-scale));
+    height: calc(400px * var(--orbit-scale));
     transform: translate(-50%, -50%);
     background: radial-gradient(circle, var(--orbit-core-glow), transparent 70%);
     filter: blur(20px);
@@ -184,16 +239,20 @@
     }
 }
 
-.orbit-box {
+.orbit-box-wrap {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: calc(500px * var(--orbit-scale));
+    height: calc(500px * var(--orbit-scale));
 }
 
-@media (max-width: 620px) {
-    .orbit-box {
-        transform: scale(0.82);
-    }
+.orbit-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    transform: scale(var(--orbit-scale));
+    transform-origin: top left;
 }
 
 .orbit-ring {
@@ -278,10 +337,24 @@
     }
 }
 
+.orbit-core .c-initial-ring {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--orbit-core-border);
+    margin-bottom: 2px;
+}
+
 .orbit-core .c-initial {
-    font-size: 38px;
-    font-weight: 700;
+    font-size: 24px;
     line-height: 1;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .orbit-core .c-name {
@@ -311,24 +384,6 @@
     }
 }
 
-.orbit-beams {
-    position: absolute;
-    inset: 0;
-    overflow: visible;
-    pointer-events: none;
-}
-
-.orbit-beam-line {
-    stroke: var(--orbit-pink);
-    stroke-width: 1.4;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-}
-
-.orbit-beam-line.active {
-    opacity: 0.6;
-}
-
 .orbit-planet-wrap {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -347,8 +402,14 @@
     align-items: center;
     justify-content: center;
     gap: 2px;
-    background: var(--orbit-planet-bg);
+    /* Solid --orbit-card-a layer underneath (opaque) stops the orbit rings
+       from bleeding through — --orbit-planet-bg alone is a near-transparent
+       tint, so the ring, sitting right in the planets' orbit radius, showed
+       straight through it. The translucent tint layer stays on top for the
+       same soft-highlight look. */
+    background: radial-gradient(circle at 35% 30%, var(--orbit-blue-soft), transparent 70%), var(--orbit-card-a);
     border: 1px solid var(--orbit-planet-border);
+    box-shadow: 0 6px 18px -12px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease, border-color 0.25s, box-shadow 0.25s, background 0.25s;
     opacity: 0;
@@ -370,10 +431,15 @@
 }
 
 .orbit-planet .p-glyph {
-    font-size: 18px;
-    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--orbit-blue);
-    line-height: 1;
+}
+
+.orbit-planet .p-glyph svg {
+    width: 22px;
+    height: 22px;
 }
 
 .orbit-planet .p-label {
@@ -401,7 +467,7 @@
 }
 
 .orbit-planet.active {
-    background: var(--orbit-pink-soft);
+    background: radial-gradient(circle at 35% 30%, var(--orbit-pink-soft), transparent 70%), var(--orbit-card-a);
     border-color: var(--orbit-pink);
     box-shadow: 0 0 30px var(--orbit-pink-soft);
 }

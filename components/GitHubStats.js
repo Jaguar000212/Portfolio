@@ -400,7 +400,7 @@ const GitHubStats = () => {
             >
                 <SectionHeading
                     title="Open Source Activity"
-                    subtitle="Pulled live from GitHub — commits, stars, and a running streak of showing up."
+                    subtitle="Pulled live from GitHub — commits, stars, and a streak of showing up."
                 />
             </motion.div>
 

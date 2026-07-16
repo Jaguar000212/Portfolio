@@ -4,6 +4,7 @@ import CertificateTile from "../components/CertificateTile";
 import SpecializationTile from "../components/SpecializationTile";
 import Seo from "../components/Seo";
 import {fadeIn} from "../constants/animations";
+import SectionHeading from "../components/SectionHeading";
 
 export default function Certificates() {
     const [certificates, setCertificates] = useState([]);
@@ -55,13 +56,11 @@ export default function Certificates() {
                         transition={{duration: 0.5}}
                         className="mb-12"
                     >
-                        <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">
-                            My Certificates
-                        </h1>
-                        <p className="font-body text-gray-600 dark:text-gray-400">
-                            Professional certifications and courses I've
-                            completed
-                        </p>
+                        <SectionHeading
+                            title="My Certificates"
+                            subtitle="Professional certifications and courses I've
+                            completed"
+                        />
                     </motion.div>
 
                     {loading ? (
