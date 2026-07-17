@@ -211,7 +211,7 @@ export default function SkillOrbit({data, onReplayBoot}) {
                                 aria-label="Show toolkit overview"
                             >
                                 <div className="c-initial-ring">
-                                    <span className="c-initial signature-text">
+                                    <span className="c-initial font-heading">
                                         {core.initial}
                                     </span>
                                 </div>

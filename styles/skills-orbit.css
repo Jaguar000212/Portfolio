@@ -349,12 +349,9 @@
 }
 
 .orbit-core .c-initial {
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 700;
     line-height: 1;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
 }
 
 .orbit-core .c-name {

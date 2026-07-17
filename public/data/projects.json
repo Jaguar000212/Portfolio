@@ -46,22 +46,16 @@
     },
     {
       "id": 4,
-      "title": "GovCrawler",
-      "description": "A full outreach platform built around a government-domain web crawler. FastAPI backend orchestrates an async crawl engine (HTTPX-first with Playwright fallback for JS-heavy pages) that extracts contact emails and personnel details from crawled sites, feeds a lead-scoring system, and drives an SMTP email dispatcher with credential rotation, bounce handling, and automatic blacklisting. Ships as a cross-platform desktop app via a Tkinter GUI and system tray, backed by SQLAlchemy/SQLite with Alembic migrations.",
+      "title": "GearBox – Android Toolkit",
+      "description": "A Kotlin and Jetpack Compose rewrite of an Android toolkit app, bundling 28 handy mini-tools — calculators, converters, games/randomizers, and utilities — into one Material 3 app. Built on a single-activity, Navigation Compose architecture with a flexible tool-registry system, SharedPreferences-backed persistence for tools that need it, and a searchable, favoritable home screen.",
       "technologies": [
-        "Python",
-        "FastAPI",
-        "SQLAlchemy",
-        "Playwright",
-        "HTTPX",
-        "BeautifulSoup",
-        "asyncio",
-        "aiosmtplib",
-        "Alembic",
-        "Tkinter"
+        "Kotlin",
+        "Jetpack Compose",
+        "Navigation Compose",
+        "Material Design 3",
+        "SharedPreferences"
       ],
-      "image": "/images/project-previews/gov-crawler.png",
-      "github": "https://github.com/Jaguar000212/GovCrawler",
+      "github": "https://github.com/Jaguar000212/GearBox",
       "featured": true
     }
   ]

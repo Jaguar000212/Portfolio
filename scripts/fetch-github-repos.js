@@ -212,18 +212,30 @@ async function fetchGitHubData() {
                     // Weeks/days come chronologically ascending, so the streak
                     // scan just walks the flattened list from the end (today)
                     // backwards for "current", and forwards for "longest".
+                    // The requested range runs to Dec 31, and GitHub returns
+                    // the future remainder of the year as zero-count days —
+                    // scan only up to today, or the backward walk starts in
+                    // months of guaranteed zeros and always reports 0.
                     const allDays = contributionWeeks.flatMap(w => w.days);
+                    const today = new Date().toISOString().slice(0, 10);
+                    const pastDays = allDays.filter(d => d.date <= today);
                     let currentStreak = 0;
-                    for (let i = allDays.length - 1; i >= 0; i--) {
-                        if (allDays[i].count > 0) currentStreak++;
-                        else break;
+                    for (let i = pastDays.length - 1; i >= 0; i--) {
+                        if (pastDays[i].count > 0) {
+                            currentStreak++;
+                        } else if (i === pastDays.length - 1) {
+                            // No contributions *yet* today — the day isn't
+                            // over, so it doesn't break the streak.
+                        } else {
+                            break;
+                        }
                     }
                     let longestStreak = 0;
                     let longestStreakStart = null;
                     let longestStreakEnd = null;
                     let running = 0;
                     let runStart = null;
-                    for (const day of allDays) {
+                    for (const day of pastDays) {
                         if (day.count > 0) {
                             if (running === 0) runStart = day.date;
                             running++;
