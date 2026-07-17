@@ -62,7 +62,15 @@ const SocialMedia = ({className = ""}) => {
                             <path d={social.path}/>
                         </svg>
                     ) : (
-                        <span className="text-sm font-bold leading-none">in</span>
+                        // A fixed w-4 h-4 box with its own flex centering
+                        // (matching the SVG icons' box exactly) centers the
+                        // glyph geometrically regardless of font baseline
+                        // metrics — text-only centering (or SVG
+                        // dominant-baseline, which renders inconsistently
+                        // across font fallbacks) can't be trusted the same way.
+                        <span className="w-4 h-4 flex items-center justify-center text-[17px] font-extrabold leading-none tracking-tighter">
+                            in
+                        </span>
                     )}
                 </motion.a>
             ))}

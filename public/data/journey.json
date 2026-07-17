@@ -22,7 +22,8 @@
         "SQLAlchemy",
         "Playwright",
         "LLM + OCR"
-      ]
+      ],
+      "logo": "/images/journey-logos/misha.png"
     },
     {
       "id": "manipal",
@@ -39,7 +40,7 @@
         "Member of CodeX, the coding club of MIT",
         "Participated in many Hackathons and Coding Competitions"
       ],
-      "logo": "/images/education-logos/manipal.png"
+      "logo": "/images/journey-logos/manipal.png"
     },
     {
       "id": "subodh",
@@ -56,7 +57,7 @@
         "Learned Python and libraries like Pandas, Numpy, Matplotlib for Data Science",
         "Developed a CLI-based Wedding Planner using Python"
       ],
-      "logo": "/images/education-logos/spsa.png"
+      "logo": "/images/journey-logos/spsa.png"
     }
   ]
 }

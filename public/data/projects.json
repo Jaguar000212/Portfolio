@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": 1,
-      "title": "Little Lemon Restaurant App",
+      "title": "Little Lemon - Restaurant Management App",
       "description": "A fully functional restaurant app developed as part of Meta's Android certification program. It features user authentication with Firebase, dynamic menu rendering via Firestore, and an admin panel for managing dishes and orders — all built with a polished Jetpack Compose UI.",
       "technologies": [
         "Kotlin",
@@ -25,13 +25,13 @@
         "REST APIs",
         "MongoDB"
       ],
-      "image": "/images/project-previews/wizardi.png",
+      "image": "https://opengraph.githubassets.com/80ebcab2ebbc23633ec8930ef85c7a1993340f480229929dab73398278f82344/Jaguar000212/Wizardi",
       "github": "https://github.com/Jaguar000212/Wizardi",
       "featured": true
     },
     {
       "id": 3,
-      "title": "track-At.",
+      "title": "track-At. - College Companion",
       "description": "A modern Android attendance-tracking app built with Jetpack Compose, designed to help students and professionals stay on top of their schedules. Features a smart weekly scheduler, quick present/absent/cancelled marking, real-time attendance-percentage insights, and semester-based subject management — all backed by a local Room database with import-export support for easy backups.",
       "technologies": [
         "Kotlin",
@@ -40,7 +40,7 @@
         "Hilt",
         "Material Design 3"
       ],
-      "image": "/images/project-previews/track-at.png",
+      "image": "https://opengraph.githubassets.com/80ebcab2ebbc23633ec8930ef85c7a1993340f480229929dab73398278f82344/Jaguar000212/track-At.",
       "github": "https://github.com/Jaguar000212/track-At./",
       "featured": true
     },
@@ -55,6 +55,7 @@
         "Material Design 3",
         "SharedPreferences"
       ],
+      "image": "https://opengraph.githubassets.com/80ebcab2ebbc23633ec8930ef85c7a1993340f480229929dab73398278f82344/Jaguar000212/GearBox",
       "github": "https://github.com/Jaguar000212/GearBox",
       "featured": true
     }
