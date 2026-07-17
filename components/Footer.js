@@ -35,10 +35,10 @@ const Footer = () => {
                             Skills
                         </Link>
                         <Link
-                            href="/education"
+                            href="/journey"
                             className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-duration-300"
                         >
-                            Education
+                            Journey
                         </Link>
                         <Link
                             href="/certificates"

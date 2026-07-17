@@ -105,7 +105,7 @@
         "name": "Kotlin",
         "color": "#A97BFF"
       },
-      "updatedAt": "2026-07-14T10:12:15Z",
+      "updatedAt": "2026-07-17T09:24:03Z",
       "topics": [
         "android",
         "application",
@@ -118,12 +118,12 @@
   "stats": {
     "totalStars": 20,
     "totalPublicRepos": 23,
-    "totalContributions": 332,
+    "totalContributions": 338,
     "followers": 15,
     "totalPullRequests": 66,
     "totalIssues": 42,
     "totalReviews": 8,
-    "repositoriesContributedTo": 0,
+    "repositoriesContributedTo": 1,
     "currentStreak": 0,
     "longestStreak": 7,
     "longestStreakStart": "2026-06-21",
@@ -135,32 +135,32 @@
       {
         "name": "Python",
         "color": "#3572A5",
-        "percent": 39.4
+        "percent": 38.5
       },
       {
         "name": "Kotlin",
         "color": "#A97BFF",
-        "percent": 32.1
+        "percent": 32.5
       },
       {
         "name": "JavaScript",
         "color": "#f1e05a",
-        "percent": 12.2
+        "percent": 12.8
       },
       {
         "name": "HTML",
         "color": "#e34c26",
-        "percent": 8.1
+        "percent": 7.9
       },
       {
-        "name": "Java",
-        "color": "#b07219",
+        "name": "CSS",
+        "color": "#663399",
         "percent": 2.2
       },
       {
         "name": "Others",
         "color": "#6b7280",
-        "percent": 6.1
+        "percent": 6
       }
     ],
     "contributionWeeks": [
@@ -1064,11 +1064,11 @@
           },
           {
             "date": "2026-07-16",
-            "count": 0
+            "count": 2
           },
           {
             "date": "2026-07-17",
-            "count": 0
+            "count": 4
           },
           {
             "date": "2026-07-18",
@@ -1837,11 +1837,11 @@
         ]
       }
     ],
-    "totalCommits": 753,
+    "totalCommits": 760,
     "rank": {
       "percentile": 56.6,
       "grade": "B+"
     }
   },
-  "lastFetched": "2026-07-15T12:10:05.407Z"
+  "lastFetched": "2026-07-17T10:23:01.960Z"
 }

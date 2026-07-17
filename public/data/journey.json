@@ -1,0 +1,62 @@
+{
+  "journey": [
+    {
+      "id": "misha-infotech",
+      "type": "work",
+      "title": "Software Engineer Intern",
+      "organization": "Misha Infotech Pvt. Ltd.",
+      "location": "Noida, India",
+      "duration": "June 2026 - Present",
+      "current": true,
+      "highlights": [
+        "Architecting TenderOS, a multi-tenant SaaS targeting sub-500ms API latency, to replace manual enterprise procurement tracking",
+        "Developing an LLM-powered AI Extraction Engine with OCR fallback to parse unstructured documents — cutting manual data entry by 2-4 hours per tender",
+        "Building asynchronous Redis queues for critical deadline tracking alongside an immutable audit trail, ensuring DPDP data compliance",
+        "Co-engineered the core asynchronous web crawling infrastructure, routing data across 100+ domains daily with Python (httpx + Playwright)",
+        "Architected a FastAPI backend with SQLAlchemy and Alembic migrations, serving as the data layer for a system scoring 1000+ leads daily"
+      ],
+      "stack": [
+        "Python",
+        "FastAPI",
+        "Redis",
+        "SQLAlchemy",
+        "Playwright",
+        "LLM + OCR"
+      ]
+    },
+    {
+      "id": "manipal",
+      "type": "education",
+      "title": "B.Tech in Computer Science",
+      "organization": "Manipal Institute of Technology",
+      "location": "Bangalore, India",
+      "duration": "August 2023 - Present",
+      "current": true,
+      "highlights": [
+        "Built a custom Compiler, 'Kompile', in Kotlin",
+        "Learning C Language and Data Structures",
+        "Active member of GDSC, a community of developers by Google",
+        "Member of CodeX, the coding club of MIT",
+        "Participated in many Hackathons and Coding Competitions"
+      ],
+      "logo": "/images/education-logos/manipal.png"
+    },
+    {
+      "id": "subodh",
+      "type": "education",
+      "title": "Intermediate (PCM)",
+      "organization": "Subodh Public School",
+      "location": "Jaipur, India",
+      "duration": "August 2021 - April 2023",
+      "current": false,
+      "highlights": [
+        "Passed with 91% in PCM (Physics, Chemistry, Mathematics)",
+        "Performed outstanding in Informatics Practices with a score of 97%",
+        "Participated in many Olympiads and Science Competitions",
+        "Learned Python and libraries like Pandas, Numpy, Matplotlib for Data Science",
+        "Developed a CLI-based Wedding Planner using Python"
+      ],
+      "logo": "/images/education-logos/spsa.png"
+    }
+  ]
+}
