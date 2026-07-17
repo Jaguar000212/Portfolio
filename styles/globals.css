@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 :root {
     --foreground-rgb: 0, 0, 0;
@@ -49,7 +48,7 @@ body {
     }
 
     .btn-primary {
-        @apply bg-primary text-white hover:bg-opacity-90;
+        @apply bg-primary text-white hover:bg-primary/90;
     }
 
     .container-custom {
