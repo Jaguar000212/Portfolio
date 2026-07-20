@@ -26,7 +26,7 @@ jobs:
       - name: Fetch GitHub stats
         env:
           GITHUB_USERNAME: Jaguar000212
-          GITHUB_TOKEN: ${{ secrets.STATS_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAGES_REPO_TOKEN }}
         run: bun scripts/fetch-github-repos.js
 
       - name: Commit updated stats if changed
