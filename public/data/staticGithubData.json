@@ -105,20 +105,20 @@
         "name": "JavaScript",
         "color": "#f1e05a"
       },
-      "updatedAt": "2026-07-23T02:52:02Z",
+      "updatedAt": "2026-07-24T02:47:03Z",
       "topics": []
     }
   ],
   "stats": {
     "totalStars": 20,
-    "totalPublicRepos": 23,
-    "totalContributions": 413,
+    "totalPublicRepos": 22,
+    "totalContributions": 430,
     "followers": 15,
     "totalPullRequests": 73,
     "totalIssues": 42,
-    "totalReviews": 8,
+    "totalReviews": 0,
     "repositoriesContributedTo": 1,
-    "currentStreak": 4,
+    "currentStreak": 5,
     "longestStreak": 7,
     "longestStreakStart": "2026-06-21",
     "longestStreakEnd": "2026-06-27",
@@ -127,34 +127,34 @@
     "measurementEnd": "2026-12-31",
     "topLanguages": [
       {
-        "name": "Python",
-        "color": "#3572A5",
-        "percent": 38.4
-      },
-      {
         "name": "Kotlin",
         "color": "#A97BFF",
-        "percent": 32.5
+        "percent": 55.6
+      },
+      {
+        "name": "Python",
+        "color": "#3572A5",
+        "percent": 23.9
       },
       {
         "name": "JavaScript",
         "color": "#f1e05a",
-        "percent": 13
+        "percent": 9
       },
       {
-        "name": "HTML",
-        "color": "#e34c26",
-        "percent": 7.9
+        "name": "Java",
+        "color": "#b07219",
+        "percent": 3.6
       },
       {
-        "name": "CSS",
-        "color": "#663399",
-        "percent": 2.2
+        "name": "Jupyter Notebook",
+        "color": "#DA5B0B",
+        "percent": 2.8
       },
       {
         "name": "Others",
         "color": "#6b7280",
-        "percent": 6
+        "percent": 5.1
       }
     ],
     "contributionWeeks": [
@@ -1090,11 +1090,11 @@
           },
           {
             "date": "2026-07-23",
-            "count": 12
+            "count": 17
           },
           {
             "date": "2026-07-24",
-            "count": 0
+            "count": 12
           },
           {
             "date": "2026-07-25",
@@ -1831,11 +1831,11 @@
         ]
       }
     ],
-    "totalCommits": 828,
+    "totalCommits": 845,
     "rank": {
-      "percentile": 57.9,
+      "percentile": 50.2,
       "grade": "B+"
     }
   },
-  "lastFetched": "2026-07-24T02:46:59.178Z"
+  "lastFetched": "2026-07-25T02:45:58.272Z"
 }
