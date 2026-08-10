@@ -43,13 +43,13 @@
       "name": "LOTM-API",
       "description": "Library that scraps data from one of the fandoms of Lord of the Mysteries, the renounced Novel.",
       "url": "https://github.com/Jaguar000212/LOTM-API",
-      "stargazerCount": 3,
+      "stargazerCount": 4,
       "forkCount": 2,
       "primaryLanguage": {
         "name": "Python",
         "color": "#3572A5"
       },
-      "updatedAt": "2026-07-11T01:07:16Z",
+      "updatedAt": "2026-08-08T09:56:52Z",
       "topics": [
         "api",
         "beautifulsoup",
@@ -105,20 +105,20 @@
         "name": "JavaScript",
         "color": "#f1e05a"
       },
-      "updatedAt": "2026-08-05T02:38:09Z",
+      "updatedAt": "2026-08-06T02:40:47Z",
       "topics": []
     }
   ],
   "stats": {
-    "totalStars": 20,
+    "totalStars": 21,
     "totalPublicRepos": 22,
-    "totalContributions": 429,
+    "totalContributions": 462,
     "followers": 15,
-    "totalPullRequests": 73,
-    "totalIssues": 42,
+    "totalPullRequests": 39,
+    "totalIssues": 19,
     "totalReviews": 0,
     "repositoriesContributedTo": 2,
-    "currentStreak": 0,
+    "currentStreak": 4,
     "longestStreak": 7,
     "longestStreakStart": "2026-06-21",
     "longestStreakEnd": "2026-06-27",
@@ -1154,15 +1154,15 @@
           },
           {
             "date": "2026-08-06",
-            "count": 0
+            "count": 2
           },
           {
             "date": "2026-08-07",
-            "count": 0
+            "count": 16
           },
           {
             "date": "2026-08-08",
-            "count": 0
+            "count": 5
           }
         ]
       },
@@ -1170,7 +1170,7 @@
         "days": [
           {
             "date": "2026-08-09",
-            "count": 0
+            "count": 10
           },
           {
             "date": "2026-08-10",
@@ -1831,11 +1831,11 @@
         ]
       }
     ],
-    "totalCommits": 845,
+    "totalCommits": 536,
     "rank": {
-      "percentile": 50.2,
-      "grade": "B+"
+      "percentile": 40.6,
+      "grade": "B"
     }
   },
-  "lastFetched": "2026-08-06T02:40:36.458Z"
+  "lastFetched": "2026-08-10T10:05:54.237Z"
 }
