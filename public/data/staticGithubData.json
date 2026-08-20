@@ -59,21 +59,26 @@
     },
     {
       "id": "R_kgDOSP8bWA",
-      "name": "Async-Worker",
-      "description": "This project demonstrates an end-to-end asynchronous document processing system",
-      "url": "https://github.com/Jaguar000212/Async-Worker",
+      "name": "Async-Document-Pipeline",
+      "description": "Asynchronous document processing pipeline: FastAPI enqueues, Celery workers extract, Redis Pub/Sub streams live progress to a Next.js dashboard over SSE.",
+      "url": "https://github.com/Jaguar000212/Async-Document-Pipeline",
       "stargazerCount": 0,
       "forkCount": 0,
       "primaryLanguage": {
         "name": "TypeScript",
         "color": "#3178c6"
       },
-      "updatedAt": "2026-07-05T16:57:27Z",
+      "updatedAt": "2026-08-19T21:25:34Z",
       "topics": [
-        "async-workers",
         "celery",
-        "postgresql",
-        "redis"
+        "redis",
+        "alembic",
+        "async",
+        "docker",
+        "fastapi",
+        "nextjs",
+        "postgres",
+        "sse"
       ]
     },
     {
@@ -105,20 +110,20 @@
         "name": "JavaScript",
         "color": "#f1e05a"
       },
-      "updatedAt": "2026-08-18T01:17:23Z",
+      "updatedAt": "2026-08-19T01:18:31Z",
       "topics": []
     }
   ],
   "stats": {
     "totalStars": 21,
     "totalPublicRepos": 23,
-    "totalContributions": 499,
+    "totalContributions": 501,
     "followers": 15,
     "totalPullRequests": 39,
     "totalIssues": 19,
     "totalReviews": 0,
     "repositoriesContributedTo": 2,
-    "currentStreak": 0,
+    "currentStreak": 1,
     "longestStreak": 7,
     "longestStreakStart": "2026-06-21",
     "longestStreakEnd": "2026-06-27",
@@ -1218,7 +1223,7 @@
           },
           {
             "date": "2026-08-20",
-            "count": 0
+            "count": 2
           },
           {
             "date": "2026-08-21",
@@ -1831,11 +1836,11 @@
         ]
       }
     ],
-    "totalCommits": 661,
+    "totalCommits": 663,
     "rank": {
       "percentile": 41.7,
       "grade": "B"
     }
   },
-  "lastFetched": "2026-08-19T01:18:26.057Z"
+  "lastFetched": "2026-08-20T01:18:06.190Z"
 }
