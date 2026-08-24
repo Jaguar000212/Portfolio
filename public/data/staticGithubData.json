@@ -18,43 +18,26 @@
       ]
     },
     {
-      "id": "R_kgDOKipKMQ",
-      "name": "Wedding-Planner",
-      "description": "Interactive Wedding Planner",
-      "url": "https://github.com/Jaguar000212/Wedding-Planner",
-      "stargazerCount": 3,
-      "forkCount": 1,
+      "id": "R_kgDOT41Low",
+      "name": "Predictive-Maintenance-Cost-Aware",
+      "description": "Cost-aware evaluation of probabilistic and ensemble models for industrial predictive maintenance — do complex models actually save money?",
+      "url": "https://github.com/Jaguar000212/Predictive-Maintenance-Cost-Aware",
+      "stargazerCount": 0,
+      "forkCount": 0,
       "primaryLanguage": {
         "name": "Python",
         "color": "#3572A5"
       },
-      "updatedAt": "2025-06-25T04:08:44Z",
+      "updatedAt": "2026-08-23T19:42:33Z",
       "topics": [
-        "management-system",
-        "manager",
-        "mysql",
-        "project",
-        "python",
-        "wedding-planner"
-      ]
-    },
-    {
-      "id": "R_kgDOLNmzww",
-      "name": "LOTM-API",
-      "description": "Library that scraps data from one of the fandoms of Lord of the Mysteries, the renounced Novel.",
-      "url": "https://github.com/Jaguar000212/LOTM-API",
-      "stargazerCount": 4,
-      "forkCount": 2,
-      "primaryLanguage": {
-        "name": "Python",
-        "color": "#3572A5"
-      },
-      "updatedAt": "2026-08-08T09:56:52Z",
-      "topics": [
-        "api",
-        "beautifulsoup",
-        "web-scraping",
-        "lord-of-the-mystries"
+        "bayesian-inference",
+        "cost-sensitive-learning",
+        "ensamble-learning",
+        "imbalanced-data",
+        "machine-learning",
+        "predictive-maintenance",
+        "scikit-learn",
+        "survival-analysis"
       ]
     },
     {
@@ -100,6 +83,27 @@
       ]
     },
     {
+      "id": "R_kgDOKipKMQ",
+      "name": "Wedding-Planner",
+      "description": "Interactive Wedding Planner",
+      "url": "https://github.com/Jaguar000212/Wedding-Planner",
+      "stargazerCount": 3,
+      "forkCount": 1,
+      "primaryLanguage": {
+        "name": "Python",
+        "color": "#3572A5"
+      },
+      "updatedAt": "2025-06-25T04:08:44Z",
+      "topics": [
+        "management-system",
+        "manager",
+        "mysql",
+        "project",
+        "python",
+        "wedding-planner"
+      ]
+    },
+    {
       "id": "R_kgDOPEuTSw",
       "name": "Portfolio",
       "description": "My portfolio template",
@@ -110,20 +114,20 @@
         "name": "JavaScript",
         "color": "#f1e05a"
       },
-      "updatedAt": "2026-08-22T01:17:15Z",
+      "updatedAt": "2026-08-23T01:24:22Z",
       "topics": []
     }
   ],
   "stats": {
     "totalStars": 21,
     "totalPublicRepos": 23,
-    "totalContributions": 526,
+    "totalContributions": 535,
     "followers": 15,
     "totalPullRequests": 39,
     "totalIssues": 19,
     "totalReviews": 0,
     "repositoriesContributedTo": 2,
-    "currentStreak": 3,
+    "currentStreak": 1,
     "longestStreak": 7,
     "longestStreakStart": "2026-06-21",
     "longestStreakEnd": "2026-06-27",
@@ -134,7 +138,7 @@
       {
         "name": "Kotlin",
         "color": "#A97BFF",
-        "percent": 47
+        "percent": 46.3
       },
       {
         "name": "Python",
@@ -144,17 +148,17 @@
       {
         "name": "JavaScript",
         "color": "#f1e05a",
-        "percent": 7.6
+        "percent": 8.5
       },
       {
         "name": "Java",
         "color": "#b07219",
-        "percent": 3.1
+        "percent": 3
       },
       {
         "name": "Jupyter Notebook",
         "color": "#DA5B0B",
-        "percent": 2.4
+        "percent": 2.3
       },
       {
         "name": "Others",
@@ -1243,7 +1247,7 @@
           },
           {
             "date": "2026-08-24",
-            "count": 0
+            "count": 9
           },
           {
             "date": "2026-08-25",
@@ -1836,11 +1840,11 @@
         ]
       }
     ],
-    "totalCommits": 569,
+    "totalCommits": 578,
     "rank": {
-      "percentile": 40.9,
+      "percentile": 41,
       "grade": "B"
     }
   },
-  "lastFetched": "2026-08-23T01:24:16.397Z"
+  "lastFetched": "2026-08-24T01:21:38.612Z"
 }
