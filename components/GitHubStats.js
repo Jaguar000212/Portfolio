@@ -1,7 +1,7 @@
 import { animate, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cardHoverTransition } from "../constants/animations";
-import SectionHeading from "./SectionHeading";
+import githubData from "../public/data/staticGithubData.json";
 
 const GITHUB_PROFILE_URL = "https://github.com/Jaguar000212";
 
@@ -120,44 +120,6 @@ function FolderIcon() {
     );
 }
 
-function PersonIcon() {
-    return (
-        <svg {...ICON_PROPS}>
-            <circle cx="12" cy="8" r="3.5" />
-            <path d="M5 19a7 7 0 0114 0" />
-        </svg>
-    );
-}
-
-function PullRequestIcon() {
-    return (
-        <svg {...ICON_PROPS}>
-            <circle cx="7" cy="5" r="2" fill="currentColor" stroke="none" />
-            <circle cx="7" cy="19" r="2" fill="currentColor" stroke="none" />
-            <circle cx="17" cy="12" r="2" fill="currentColor" stroke="none" />
-            <path d="M7 7v12M7 12h8" />
-        </svg>
-    );
-}
-
-function IssueIcon() {
-    return (
-        <svg {...ICON_PROPS}>
-            <circle cx="12" cy="12" r="9" />
-            <line x1="12" y1="8" x2="12" y2="13" />
-            <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none" />
-        </svg>
-    );
-}
-
-function MedalIcon() {
-    return (
-        <svg {...ICON_PROPS}>
-            <path d="M8 3l2.5 6.5M16 3l-2.5 6.5" />
-            <circle cx="12" cy="15" r="5" />
-        </svg>
-    );
-}
 
 // Animates on mount/whenever `value` resolves to a real number — not gated
 // on scroll-into-view, since that previously relied on a ref that wasn't
@@ -182,27 +144,6 @@ function StatRow({ icon, label, value }) {
             <span className="orbit-mono text-white/60 w-32 shrink-0">{label}:</span>
             <span className="orbit-mono font-bold text-white">{display}</span>
         </li>
-    );
-}
-
-function RankBadge({ rank }) {
-    if (!rank) return null;
-    const topPercent = Math.max(0, Math.round((100 - rank.percentile) * 10) / 10);
-
-    return (
-        <div className="flex flex-col items-center shrink-0 sm:pl-4">
-            <div className="w-28 h-28 rounded-full flex items-center justify-center border-4 border-primary">
-                <span className="text-3xl font-bold orbit-mono text-primary">
-                    {rank.grade}
-                </span>
-            </div>
-            <span className="text-xs text-white/40 orbit-mono mt-2 flex items-center gap-1">
-                <span className="w-3 h-3 shrink-0">
-                    <MedalIcon />
-                </span>
-                top {topPercent}%
-            </span>
-        </div>
     );
 }
 
@@ -347,23 +288,7 @@ function ContributionHeatmap({
 const CARD_EXTRA_WIDTH = 48 + 32 + 16;
 
 const GitHubStats = () => {
-    const [stats, setStats] = useState(null);
-
-    useEffect(() => {
-        async function fetchStats() {
-            try {
-                const response = await fetch("/data/staticGithubData.json");
-                const json = await response.json();
-                if (json.stats) setStats(json.stats);
-            } catch (error) {
-                console.error("Error loading GitHub stats:", error);
-            }
-        }
-
-        fetchStats();
-    }, []);
-
-    if (!stats) return null;
+    const stats = githubData.stats;
 
     // The card should never be wider than the heatmap (otherwise it's just
     // empty space) — computed analytically from the same fixed pixel values
@@ -379,12 +304,9 @@ const GitHubStats = () => {
     // missing newer keys — skip those rows rather than showing a
     // misleading "0" until the next scripted refresh backfills them.
     const rows = [
-        { icon: <CommitIcon />, label: "Total Commits", value: stats.totalCommits },
-        { icon: <StarIcon />, label: "Total Stars", value: stats.totalStars },
+        { icon: <CommitIcon />, label: "Contributions", value: stats.totalContributions },
         { icon: <FolderIcon />, label: "Public Repos", value: stats.totalPublicRepos },
-        { icon: <PersonIcon />, label: "Followers", value: stats.followers },
-        { icon: <PullRequestIcon />, label: "PRs Opened", value: stats.totalPullRequests },
-        { icon: <IssueIcon />, label: "Issues Opened", value: stats.totalIssues },
+        { icon: <StarIcon />, label: "Stars", value: stats.totalStars },
     ].filter((row) => Number.isFinite(row.value));
 
     return (
@@ -392,17 +314,11 @@ const GitHubStats = () => {
             className="mt-20 mx-auto px-4"
             style={{ maxWidth: `${cardMaxWidth}px` }}
         >
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6 }}
-            >
-                <SectionHeading
-                    title="Open Source Activity"
-                    subtitle="Pulled live from GitHub — commits, stars, and a streak of showing up."
-                />
-            </motion.div>
+            <div className="mb-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary mb-2">Open-source activity</p>
+                <h2 className="font-heading text-2xl font-bold">A compact view of public work.</h2>
+                <p className="mt-2 max-w-2xl text-sm text-gray-600 dark:text-gray-400">Contribution history and repository activity support the project evidence above.</p>
+            </div>
 
             <motion.a
                 href={GITHUB_PROFILE_URL}
@@ -434,7 +350,6 @@ const GitHubStats = () => {
                                 ))}
                             </ul>
 
-                            <RankBadge rank={stats.rank} />
                         </div>
 
                         {stats.topLanguages?.length > 0 && (

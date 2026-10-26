@@ -2,12 +2,12 @@
   "core": {
     "initial": "J",
     "name": "JAGUAR",
-    "role": "Full-Stack Eng"
+    "role": "Backend & Platform"
   },
   "intro": {
-    "eyebrow": "My toolkit",
-    "title": "A full-stack toolkit, mapped as a system.",
-    "subtitle": "From native mobile to compilers — each planet is a domain, its tools one tap away."
+    "eyebrow": "Demonstrated toolkit",
+    "title": "Tools behind the work.",
+    "subtitle": "Backend systems first, supported by applied AI, compiler design, and native Android delivery."
   },
   "domains": [
     {

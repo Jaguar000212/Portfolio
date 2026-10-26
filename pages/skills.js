@@ -54,8 +54,8 @@ export default function Skills() {
 
     return (<>
             <Seo
-                title="Skills | Jaguar000212"
-                description="Technical skills in Android, Kotlin, Jetpack Compose and other technologies"
+                title="Technical Toolkit | Shryansh Parashar"
+                description="Backend, applied AI, compiler, and Kotlin/Android technologies demonstrated across Shryansh Parashar's public work."
                 path="/skills"
             />
 
@@ -68,10 +68,8 @@ export default function Skills() {
                         className="mb-12"
                     >
                         <SectionHeading
-                            title="My Skills"
-                            subtitle="Technologies and tools I use to bring ideas
-                            to life, mapped as a living system rather
-                            than a list."
+                            title="Technical toolkit"
+                            subtitle="Capabilities grouped by the systems and products where I have used them."
                         />
                     </motion.div>
 

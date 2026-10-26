@@ -8,7 +8,7 @@ const PERSON_SCHEMA = {
     "@type": "Person",
     name: "Shryansh Parashar",
     url: SITE_URL,
-    jobTitle: "Software Engineer",
+    jobTitle: "Backend and Platform Engineer",
     sameAs: [
         "https://github.com/Jaguar000212",
         "https://www.linkedin.com/in/jaguar000212/",

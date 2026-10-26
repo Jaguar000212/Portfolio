@@ -30,8 +30,8 @@ export default function Home() {
     return (
         <>
             <Seo
-                title="Shryansh | Software Developer"
-                description="Portfolio website for Shryansh, a Software Engineer specializing in native Android development with Kotlin and backend systems with Python"
+                title="Shryansh Parashar | Backend and Platform Engineer"
+                description="Portfolio of Shryansh Parashar, a backend and platform engineer with applied AI, compiler, and Kotlin/Android depth."
                 path="/"
                 personSchema
             />
@@ -54,13 +54,10 @@ export default function Home() {
                                 <span className="ml-2 wave-emoji">👋</span>
                             </h1>
                             <p className="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3 font-heading">
-                                Software Engineer
+                                Backend & Platform Engineer
                             </p>
                             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6">
-                                Architecting high-performance native Android
-                                applications with Kotlin and building
-                                scalable, data-driven backend systems with
-                                Python.
+                                I build asynchronous, data-intensive systems and applied-AI workflows. My public work also includes compiler tooling and native Android products in Kotlin.
                             </p>
 
                             <motion.div
@@ -74,7 +71,7 @@ export default function Home() {
                                         href="/projects"
                                         className="btn btn-primary"
                                     >
-                                        View My Projects
+                                        View selected work
                                     </Link>
                                 </motion.div>
 
@@ -83,7 +80,7 @@ export default function Home() {
                                         href="/skills"
                                         className="btn bg-white dark:bg-dark border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                                     >
-                                        My Skills
+                                        Technical toolkit
                                     </Link>
                                 </motion.div>
                             </motion.div>
@@ -108,8 +105,8 @@ export default function Home() {
                         transition={{delay: 0.8, duration: 0.6}}
                     >
                         <SectionHeading
-                            title="What I Do"
-                            subtitle="CRAZY SOFTWARE DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK"
+                            title="Engineering focus"
+                            subtitle="Evidence-led systems work, with specialized depth in applied AI, compilers, and Kotlin/Android."
                         />
 
                         <div className="grid md:grid-cols-3 gap-8">
@@ -146,31 +143,27 @@ export default function Home() {
                                     </svg>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 font-heading">
-                                    Native Android Engineering
+                                    Backend & Platform Systems
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-400">
-                                    Architecting 100% Kotlin mobile
-                                    applications using Jetpack Compose,
-                                    MVVM/MVI, and Hilt. Focused on
-                                    offline-first capabilities and responsive
-                                    UIs.
+                                    Designing APIs and worker-backed flows that separate request handling from durable state, background execution, and live progress.
                                 </p>
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                                        Kotlin
+                                        FastAPI
                                     </span>
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                                        Jetpack Compose
+                                        Celery
                                     </span>
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                                        RoomDB
+                                        PostgreSQL
                                     </span>
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">
-                                        Hilt
+                                        Redis / SSE
                                     </span>
                                 </div>
                             </motion.div>
@@ -208,13 +201,10 @@ export default function Home() {
                                     </svg>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 font-heading">
-                                    Backend & Data Systems
+                                    Applied AI & Data Rigor
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-400">
-                                    Designing high-availability REST APIs and
-                                    asynchronous processing pipelines using
-                                    Python, FastAPI, and robust database
-                                    architectures.
+                                    Building reproducible data workflows that make modeling assumptions, validation design, uncertainty, and operating trade-offs visible.
                                 </p>
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     <span
@@ -223,15 +213,15 @@ export default function Home() {
                                     </span>
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                                        FastAPI
+                                        Cross-validation
                                     </span>
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                                        PostgreSQL
+                                        Calibration
                                     </span>
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">
-                                        Redis
+                                        XGBoost
                                     </span>
                                 </div>
                             </motion.div>
@@ -269,30 +259,27 @@ export default function Home() {
                                     </svg>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 font-heading">
-                                    Automation & Applied AI
+                                    Kotlin, Android & Compilers
                                 </h3>
                                 <p className="text-gray-600 dark:text-gray-400">
-                                    Developing custom web scrapers,
-                                    automation tools, and GPU-accelerated
-                                    machine learning pipelines for massive
-                                    datasets.
+                                    Implementing language tooling and Android products with testable domain logic, durable local data, and user-facing release paths.
                                 </p>
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                                        CUDA
+                                        Kotlin
                                     </span>
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                                        Playwright
+                                        Compose
                                     </span>
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                                        XGBoost
+                                        Compiler pipeline
                                     </span>
                                     <span
                                         className="text-xs font-medium px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">
-                                        Docker
+                                        Room
                                     </span>
                                 </div>
                             </motion.div>
@@ -304,22 +291,10 @@ export default function Home() {
                             <div
                                 className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
                                 <p className="text-gray-700 dark:text-gray-300 mb-4 text-center italic">
-                                    "Everything where I can write code, I am
-                                    there. From Python to Java, I have tried my
-                                    hands on many languages and technologies. I
-                                    am always open to learning new technologies
-                                    and frameworks."
+                                    “I use each project to make engineering decisions inspectable: what the system does, why it is designed that way, how it was tested, and where it still has limits.”
                                 </p>
                                 <p className="text-gray-700 dark:text-gray-300 mb-4 text-center">
-                                    I have a strong foundation in Data
-                                    Structures and Algorithms, and I am always
-                                    ready to take on new challenges.
-                                </p>
-                                <p className="text-gray-700 dark:text-gray-300 text-center">
-                                    <span className="text-primary font-medium">
-                                        Fun fact:
-                                    </span>{" "}
-                                    Gaming is my favorite side quest. 👾
+                                    Start with the selected work for architecture and validation evidence; the Journey page adds the professional context.
                                 </p>
                             </div>
                         </div>

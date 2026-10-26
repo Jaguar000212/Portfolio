@@ -1,63 +1,95 @@
 {
   "projects": [
     {
-      "id": 1,
-      "title": "Little Lemon - Restaurant Management App",
-      "description": "A fully functional restaurant app developed as part of Meta's Android certification program. It features user authentication with Firebase, dynamic menu rendering via Firestore, and an admin panel for managing dishes and orders — all built with a polished Jetpack Compose UI.",
-      "technologies": [
-        "Kotlin",
-        "Jetpack Compose",
-        "Firebase Firestore",
-        "Firebase Auth",
-        "Material Design"
-      ],
-      "image": "/images/project-previews/little-lemon.webp",
-      "github": "https://github.com/Jaguar000212/Little-Lemon",
+      "id": "async-document-pipeline",
+      "title": "Async Document Pipeline",
+      "category": "Backend systems",
+      "summary": "A document-processing work sample that keeps uploads responsive while background workers process jobs and report progress to a review UI.",
+      "problem": "Long-running document work should not hold an HTTP request open or leave users guessing about job state.",
+      "ownership": "Built the FastAPI API, Celery worker flow, PostgreSQL job model, Redis-backed SSE updates, Docker Compose stack, and backend tests.",
+      "architecture": "FastAPI records a document and queues work; Celery updates durable job state in PostgreSQL and publishes lifecycle events; an SSE endpoint relays progress to the Next.js UI.",
+      "validation": "Covers API and worker state transitions with tests, including missing documents and forced worker failures. Alembic migrations and Compose health checks make the local stack reproducible.",
+      "limitation": "The extraction steps currently return mock data. The repository explicitly identifies missing production work: idempotent upload requests, a dead-letter path, queue backpressure, and replayable SSE events.",
+      "technologies": ["FastAPI", "Celery", "PostgreSQL", "Redis", "SSE", "Docker Compose"],
+      "github": "https://github.com/Jaguar000212/Async-Document-Pipeline",
+      "evidence": "https://github.com/Jaguar000212/Async-Document-Pipeline#what-id-change-for-production",
       "featured": true
     },
     {
-      "id": 2,
-      "title": "Wizardi – Multi-Utility Discord Bot",
-      "description": "A versatile and customizable Discord bot built with Python. Wizardi features modular command handling, rich embeds, moderation tools, and integrations for server utility and fun, all designed with scalability in mind.",
-      "technologies": [
-        "Python",
-        "Disnake",
-        "REST APIs",
-        "MongoDB"
-      ],
-      "image": "https://opengraph.githubassets.com/80ebcab2ebbc23633ec8930ef85c7a1993340f480229929dab73398278f82344/Jaguar000212/Wizardi",
-      "github": "https://github.com/Jaguar000212/Wizardi",
+      "id": "predictive-maintenance",
+      "title": "Predictive Maintenance: Cost-Aware Evaluation",
+      "category": "Applied AI and data",
+      "summary": "A reproducible study of failure-risk models that evaluates maintenance decisions with calibration, cross-validation, and an explicit cost model instead of accuracy alone.",
+      "problem": "A high-accuracy classifier can still be operationally useless on rare failures; model and threshold choices need a defensible decision rule.",
+      "ownership": "Built a layered Python evaluation pipeline with physics-derived features, censored Weibull estimation, probabilistic and tree models, cost analysis, tests, and committed experiment records.",
+      "architecture": "Frozen configuration objects, dataset loaders, model factories, repeated stratified cross-validation, recorded JSON results, and a cost curve calculated only from held-out fold predictions.",
+      "validation": "On the stated 10:1:0.5 missed-failure, false-alarm, inspection cost ratio, 5×5 CV produced 0.0826 ± 0.0137 cost per row for the depth-limited tree and 0.0817 ± 0.0124 for XGBoost. The small difference supported the pre-registered finding that added model complexity did not materially change modeled cost here.",
+      "limitation": "This is a dataset-specific, exploratory modeled result, not a field-validated savings claim. The cost-optimal thresholds are selected from the same cross-validation predictions used for reporting, so they are not an independent deployment estimate.",
+      "technologies": ["Python", "scikit-learn", "XGBoost", "Cross-validation", "Calibration", "Testing"],
+      "github": "https://github.com/Jaguar000212/Predictive-Maintenance-Cost-Aware",
+      "evidence": "https://github.com/Jaguar000212/Predictive-Maintenance-Cost-Aware#layer-4--cost-model",
       "featured": true
     },
     {
-      "id": 3,
-      "title": "track-At. - College Companion",
-      "description": "A modern Android attendance-tracking app built with Jetpack Compose, designed to help students and professionals stay on top of their schedules. Features a smart weekly scheduler, quick present/absent/cancelled marking, real-time attendance-percentage insights, and semester-based subject management — all backed by a local Room database with import-export support for easy backups.",
-      "technologies": [
-        "Kotlin",
-        "Jetpack Compose",
-        "Room",
-        "Hilt",
-        "Material Design 3"
-      ],
-      "image": "https://opengraph.githubassets.com/80ebcab2ebbc23633ec8930ef85c7a1993340f480229929dab73398278f82344/Jaguar000212/track-At.",
-      "github": "https://github.com/Jaguar000212/track-At./",
+      "id": "kompiler",
+      "title": "KOmpiler",
+      "category": "Compilers and Kotlin",
+      "summary": "An Android compiler playground for a small Pascal-like language, from source editing through execution and source-aware diagnostics.",
+      "problem": "Make compiler concepts inspectable in a mobile app without reducing the language pipeline to a black box.",
+      "ownership": "Implemented the handwritten lexer, recursive-descent parser, AST, semantic checks, IR generator, interpreter, source mapping, and Compose-based compiler UI.",
+      "architecture": "Source is tokenized, parsed into an AST, checked against a symbol table, lowered to KOmpiler IR v1, then interpreted in-app with IR-to-source mappings for diagnostics.",
+      "validation": "Unit tests execute a compiled factorial program and verify failures such as missing input and division by zero resolve to useful source-line diagnostics.",
+      "limitation": "The language intentionally has a lightweight semantic model: no full nested lexical scoping or richer type system yet.",
+      "technologies": ["Kotlin", "Jetpack Compose", "Compiler design", "AST", "IR", "JUnit"],
+      "github": "https://github.com/Jaguar000212/Kompiler",
+      "evidence": "https://github.com/Jaguar000212/Kompiler#compiler-architecture",
       "featured": true
     },
     {
-      "id": 4,
-      "title": "GearBox – Android Toolkit",
-      "description": "A Kotlin and Jetpack Compose rewrite of an Android toolkit app, bundling 28 handy mini-tools — calculators, converters, games/randomizers, and utilities — into one Material 3 app. Built on a single-activity, Navigation Compose architecture with a flexible tool-registry system, SharedPreferences-backed persistence for tools that need it, and a searchable, favoritable home screen.",
-      "technologies": [
-        "Kotlin",
-        "Jetpack Compose",
-        "Navigation Compose",
-        "Material Design 3",
-        "SharedPreferences"
-      ],
-      "image": "https://opengraph.githubassets.com/80ebcab2ebbc23633ec8930ef85c7a1993340f480229929dab73398278f82344/Jaguar000212/GearBox",
+      "id": "track-at",
+      "title": "track-At.",
+      "category": "Android product engineering",
+      "summary": "An offline attendance companion that turns a weekly timetable and class records into actionable attendance planning.",
+      "problem": "Attendance tracking needs durable local data, schedule-aware workflows, and a way to recover or transfer a student’s data.",
+      "ownership": "Built the Kotlin app around Jetpack Compose, Room, Hilt, Navigation Compose, attendance repositories, schema migrations, and import/export support.",
+      "architecture": "Room entities and DAOs model semesters, subjects, sessions, and attendance records; repositories coordinate schedule and backup flows; the Compose UI uses MVVM and Hilt.",
+      "validation": "The public repository includes Room migration code, release builds, and product screenshots covering the dashboard, schedule, day view, and import/export experience.",
+      "limitation": "The portfolio will describe the implemented offline product behavior. It will not imply adoption, retention, or accuracy metrics that are not publicly evidenced.",
+      "technologies": ["Kotlin", "Jetpack Compose", "Room", "Hilt", "MVVM", "Android"],
+      "github": "https://github.com/Jaguar000212/track-At.",
+      "demo": "https://github.com/Jaguar000212/track-At./releases",
+      "evidence": "https://github.com/Jaguar000212/track-At.#-features",
+      "featured": true
+    },
+    {
+      "id": "gearbox",
+      "title": "GearBox",
+      "category": "Kotlin and Android",
+      "summary": "A Compose utility suite organized around a tool registry, reusable UI primitives, persistent state, pure business logic, and a tagged release workflow.",
+      "technologies": ["Kotlin", "Jetpack Compose", "Navigation Compose", "SharedPreferences", "JUnit"],
       "github": "https://github.com/Jaguar000212/GearBox",
-      "featured": true
+      "evidence": "https://github.com/Jaguar000212/GearBox#architecture",
+      "featured": false
+    },
+    {
+      "id": "restaurant-manager",
+      "title": "Restaurant Manager",
+      "category": "Android and Firebase",
+      "summary": "A Compose-based restaurant prototype with Firebase authentication, Firestore data, image storage, user favorites, and role-aware admin menu controls.",
+      "technologies": ["Kotlin", "Jetpack Compose", "Firebase Auth", "Firestore", "Firebase Storage"],
+      "github": "https://github.com/Jaguar000212/Restaurant-Manager",
+      "evidence": "https://github.com/Jaguar000212/Restaurant-Manager#-features",
+      "featured": false
+    },
+    {
+      "id": "lotm-api",
+      "title": "Mystic / LOTM API",
+      "category": "Python library",
+      "summary": "A Python library that retrieves and parses character information from a public fandom source, packaged around a simple client API.",
+      "technologies": ["Python", "Requests", "BeautifulSoup", "NLTK"],
+      "github": "https://github.com/Jaguar000212/LOTM-API",
+      "evidence": "https://github.com/Jaguar000212/LOTM-API",
+      "featured": false
     }
   ]
 }

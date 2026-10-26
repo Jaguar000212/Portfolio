@@ -21,7 +21,7 @@ function MyApp({Component, pageProps}) {
                 />
                 <meta
                     name="description"
-                    content="Portfolio of Shryansh, a Mobile App Developer specializing in Android development."
+                    content="Portfolio of Shryansh Parashar, a backend and platform engineer with applied AI, compiler, and Kotlin/Android depth."
                 />
             </Head>
             {/* font-body sets the real default here, since <html> (rendered
