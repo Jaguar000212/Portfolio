@@ -1,7 +1,6 @@
 import { animate, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cardHoverTransition } from "../constants/animations";
-import githubData from "../public/data/staticGithubData.json";
 
 const GITHUB_PROFILE_URL = "https://github.com/Jaguar000212";
 
@@ -288,7 +287,25 @@ function ContributionHeatmap({
 const CARD_EXTRA_WIDTH = 48 + 32 + 16;
 
 const GitHubStats = () => {
-    const stats = githubData.stats;
+    const [stats, setStats] = useState(null);
+
+    useEffect(() => {
+        async function fetchStats() {
+            try {
+                const response = await fetch("/data/staticGithubData.json", {
+                    cache: "no-store",
+                });
+                const json = await response.json();
+                if (json.stats) setStats(json.stats);
+            } catch (error) {
+                console.error("Error loading GitHub stats:", error);
+            }
+        }
+
+        fetchStats();
+    }, []);
+
+    if (!stats) return null;
 
     // The card should never be wider than the heatmap (otherwise it's just
     // empty space) — computed analytically from the same fixed pixel values
