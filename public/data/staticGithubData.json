@@ -121,13 +121,13 @@
   "stats": {
     "totalStars": 22,
     "totalPublicRepos": 23,
-    "totalContributions": 842,
+    "totalContributions": 914,
     "followers": 15,
-    "totalPullRequests": 94,
+    "totalPullRequests": 113,
     "totalIssues": 19,
     "totalReviews": 0,
     "repositoriesContributedTo": 2,
-    "currentStreak": 3,
+    "currentStreak": 4,
     "longestStreak": 7,
     "longestStreakStart": "2026-06-21",
     "longestStreakEnd": "2026-06-27",
@@ -138,32 +138,32 @@
       {
         "name": "Kotlin",
         "color": "#A97BFF",
-        "percent": 52.6
+        "percent": 62.5
       },
       {
         "name": "Python",
         "color": "#3572A5",
-        "percent": 31.4
+        "percent": 25.4
       },
       {
         "name": "JavaScript",
         "color": "#f1e05a",
-        "percent": 7.3
+        "percent": 5.5
       },
       {
         "name": "Java",
         "color": "#b07219",
-        "percent": 2.9
+        "percent": 2.3
       },
       {
         "name": "Jupyter Notebook",
         "color": "#DA5B0B",
-        "percent": 2
+        "percent": 1.5
       },
       {
         "name": "Others",
         "color": "#6b7280",
-        "percent": 3.7
+        "percent": 2.8
       }
     ],
     "contributionWeeks": [
@@ -1631,11 +1631,11 @@
           },
           {
             "date": "2026-11-16",
-            "count": 63
+            "count": 96
           },
           {
             "date": "2026-11-17",
-            "count": 0
+            "count": 39
           },
           {
             "date": "2026-11-18",
@@ -1840,11 +1840,11 @@
         ]
       }
     ],
-    "totalCommits": 748,
+    "totalCommits": 801,
     "rank": {
-      "percentile": 50.3,
+      "percentile": 52.2,
       "grade": "B+"
     }
   },
-  "lastFetched": "2026-11-16T05:17:58.653Z"
+  "lastFetched": "2026-11-17T06:58:39.159Z"
 }
