@@ -127,7 +127,7 @@
     "totalIssues": 19,
     "totalReviews": 0,
     "repositoriesContributedTo": 2,
-    "currentStreak": 2,
+    "currentStreak": 0,
     "longestStreak": 7,
     "longestStreakStart": "2026-06-21",
     "longestStreakEnd": "2026-06-27",
@@ -1846,5 +1846,5 @@
       "grade": "B+"
     }
   },
-  "lastFetched": "2026-11-22T05:35:27.979Z"
+  "lastFetched": "2026-11-23T06:16:47.495Z"
 }
